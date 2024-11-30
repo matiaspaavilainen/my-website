@@ -1,33 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import githubWhite from './assets/github-white.svg'
+import linkedinWhite from './assets/linkedin-white.svg'
+import menuWhite from './assets/menu-white.svg'
+import githubDark from './assets/github-dark.svg'
+import linkedinDark from './assets/linkedin-dark.svg'
+import menuDark from './assets/menu-dark.svg'
+
+let TopBar = () => {
+  return (
+    <div className='topbar'>
+      <img src={menuWhite} alt='menu' width={30} height={30}></img>
+      <p>Matias Paavilainen</p>
+    </div>
+  )
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <TopBar />
+      <div className="links">
+        <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon'>
+          <img src={githubWhite}
+            alt='GitHub'
+            width={120} height={120}></img>
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon'>
+          <img src={linkedinWhite}
+            alt='linkedin'
+            width={120} height={120}></img>
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
