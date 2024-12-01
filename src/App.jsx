@@ -1,16 +1,30 @@
 import './App.css'
+import { useState } from 'react'
+
 import githubWhite from './assets/github-white.svg'
 import linkedinWhite from './assets/linkedin-white.svg'
 import menuWhite from './assets/menu-white.svg'
-import githubDark from './assets/github-dark.svg'
-import linkedinDark from './assets/linkedin-dark.svg'
-import menuDark from './assets/menu-dark.svg'
 
-let TopBar = () => {
+const NavBar = () => {
+  const [sidebarHidden, setSidebarHidden] = useState(true)
   return (
-    <div className='topbar'>
-      <img src={menuWhite} alt='menu' width={30} height={30}></img>
-      <p>Matias Paavilainen</p>
+    <div className='nav-wrapper'>
+      <div className='topbar'>
+        <h1>Matias Paavilainen</h1>
+      </div>
+
+      <img className={`menu-button ${sidebarHidden ? '' : 'rotate90'}`}
+        src={menuWhite}
+        onClick={() => { setSidebarHidden(!sidebarHidden) }}
+        alt='menu'
+        width={30} height={30}>
+      </img>
+
+      <div className={`sidebar ${sidebarHidden ? 'hidden' : ''}`} >
+        <p>test</p>
+        <p>test</p>
+        <p>test</p>
+      </div>
     </div>
   )
 }
@@ -18,7 +32,7 @@ let TopBar = () => {
 function App() {
   return (
     <>
-      <TopBar />
+      <NavBar />
       <div className="links">
         <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon'>
           <img src={githubWhite}
