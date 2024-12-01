@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "vite build && sudo cp -r dist/* /var/www/matiaspaavilainen.com/html/ && sudo chown -R www-data:www-data /var/www/matiaspaavilainen.com/html/ && sudo chmod -R 755 /var/www/matiaspaavilainen.com/html/ && sudo systemctl restart nginx",
         "lint": "eslint .",
         "lint:css": "stylelint '**/*.css'",
         "preview": "vite preview"
