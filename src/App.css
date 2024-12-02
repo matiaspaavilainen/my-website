@@ -3,7 +3,7 @@
 
   --text-color: white;
   --background-color: slategray;
-  --on-background-color: mediumpurple;
+  --on-background: mediumpurple;
   --on-background-hover: mediumorchid;
 }
 
@@ -21,8 +21,8 @@ body {
 }
 
 .nav-wrapper {
-  background-color: var(--on-background-color);
-  min-height: fit-content;
+  background-color: var(--on-background);
+  height: 32px;
   padding: 8px;
   position: relative;
 }
@@ -37,11 +37,12 @@ body {
 
 .menu-button {
   left: 0;
-  padding: 8px;
   position: absolute;
   top: 0;
+  margin: 10px;
   transition: 0.4s;
   z-index: 10;
+  width: 30px;
 }
 
 .menu-button.rotate90 {
@@ -60,7 +61,7 @@ body {
   margin: 4px;
   min-width: fit-content;
   overflow: hidden;
-  padding-top: 30px;
+  padding-top: 41px;
   position: absolute;
   top: 0;
   transition: 0.4s;
@@ -83,14 +84,17 @@ body {
 
 .links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 8px;
   padding: 8px;
 }
 
 .icon {
   border-radius: 8px;
-  padding: 2px;
   transition: 0.2s;
+  height: 100px;
+  padding: 4px;
+  width: 100px;
 }
 
 .icon:hover {

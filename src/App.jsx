@@ -9,21 +9,20 @@ const NavBar = () => {
   const [sidebarHidden, setSidebarHidden] = useState(true)
   return (
     <div className='nav-wrapper'>
-      <div className='topbar'>
-        <h1>Matias Paavilainen</h1>
-      </div>
-
       <img className={`menu-button ${sidebarHidden ? '' : 'rotate90'}`}
         src={menuWhite}
         onClick={() => { setSidebarHidden(!sidebarHidden) }}
-        alt='menu'
-        width={30} height={30}>
+        alt='menu'>
       </img>
 
       <div className={`sidebar ${sidebarHidden ? 'hidden' : ''}`} >
         <p>test</p>
         <p>test</p>
         <p>test</p>
+      </div>
+
+      <div className='topbar'>
+        <h1>yea</h1>
       </div>
     </div>
   )
@@ -36,13 +35,12 @@ function App() {
       <div className="links">
         <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon'>
           <img src={githubWhite}
-            alt='GitHub'
-            width={120} height={120}></img>
+            alt='GitHub'></img>
         </a>
         <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon'>
           <img src={linkedinWhite}
-            alt='linkedin'
-            width={120} height={120}></img>
+            alt='linkedin'>
+          </img>
         </a>
       </div>
     </>
