@@ -6,13 +6,15 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build && sudo cp -r dist/* /var/www/matiaspaavilainen.com/html/ && sudo chown -R www-data:www-data /var/www/matiaspaavilainen.com/html/ && sudo chmod -R 755 /var/www/matiaspaavilainen.com/html/ && sudo systemctl restart nginx",
-        "lint": "eslint .",
-        "lint:css": "stylelint '**/*.css'",
+        "lint": "eslint . --fix",
+        "lint:css": "stylelint '**/*.css' --fix",
         "preview": "vite preview"
     },
     "dependencies": {
         "react": "^18.3.1",
-        "react-dom": "^18.3.1"
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^7.0.2",
+        "react-select": "^5.9.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.15.0",

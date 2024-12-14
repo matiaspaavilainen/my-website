@@ -1,0 +1,29 @@
+@import url("Home.css");
+@import url("NavBar.css");
+@import url("Photos.css");
+@import url("ImageSorting.css");
+@import url("About.css");
+
+:root {
+  font-family: monospace;
+
+  --text-color: whitesmoke;
+  --background-color: slategray;
+  --on-background: mediumpurple;
+  --on-background-hover: mediumorchid;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 48px 0 0 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
+}

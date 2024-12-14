@@ -1,0 +1,8 @@
+.image-filter {
+    background-color: var(--on-background);
+    padding: 8px;
+}
+
+.image-filter-select {
+    color: black;
+}

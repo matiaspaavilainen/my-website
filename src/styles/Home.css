@@ -1,0 +1,18 @@
+.links {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 8px;
+}
+
+.icon {
+    border-radius: 8px;
+    height: 100px;
+    padding: 4px;
+    transition: 0.2s;
+    width: 100px;
+}
+
+.icon:hover {
+    background-color: var(--on-background-hover);
+}
