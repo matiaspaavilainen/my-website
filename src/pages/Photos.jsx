@@ -1,5 +1,5 @@
 import PhotoCard from '../components/PhotoCard'
-//import ImageFilter from '../components/ImageFilter'
+import ImageFilter from '../components/ImageFilter'
 
 import image1 from '../photos/DSC_0192_edited.jpg'
 import image3 from '../photos/DSC_0230_edited.jpg'
@@ -11,6 +11,7 @@ import image7 from '../photos/DSC_0283_edited.jpg'
 const Photos = () => {
     return (
         <div>
+            <ImageFilter />
             <div className='photo-grid'>
                 <PhotoCard photo={{ url: image1, title: 'Tree' }} />
                 <PhotoCard photo={{ url: image3, title: 'Ocean View' }} />

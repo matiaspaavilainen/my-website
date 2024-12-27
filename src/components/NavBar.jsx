@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 
 const NavBar = () => {
   const [sidebarHidden, setSidebarHidden] = useState(true)
-  const [titleText, setTitleText] = useState('Matias Paavilainen')
-  console.log(document.URL)
+
   return (
     <div className='fixed'>
       <div className='nav-wrapper'>
@@ -13,26 +12,26 @@ const NavBar = () => {
         <img className={`menu-button ${sidebarHidden ? '' : 'rotate90'}`}
           src={menuWhite}
           onClick={() => { setSidebarHidden(!sidebarHidden) }}
-          alt='menu'>
+          alt='Menu'>
         </img>
 
         <div className={`sidebar ${sidebarHidden ? 'hidden' : ''}`} >
-          <Link to="/" onClick={() => {
+          <Link to="/Home" onClick={() => {
             setSidebarHidden(true)
-            setTitleText('Matias Paavilainen')
           }}>Home</Link>
+
           <Link to="/Photos" onClick={() => {
             setSidebarHidden(true)
-            setTitleText('Photos')
           }}>Photos</Link>
-          {/* <Link to="/About" onClick={() => {
+
+          <Link to="/About" onClick={() => {
             setSidebarHidden(true)
-            setTitleText('About')
-          }}>About</Link> */}
+          }}>About</Link>
+
         </div>
 
         <div className='topbar'>
-          <h1>{titleText}</h1>
+          <h1>{window.location.pathname.split("/")[1]}</h1>
         </div>
       </div>
     </div>
