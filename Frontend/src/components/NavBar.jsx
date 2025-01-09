@@ -16,7 +16,7 @@ const NavBar = () => {
         </img>
 
         <div className={`sidebar ${sidebarHidden ? 'hidden' : ''}`} >
-          <Link to="/Home" onClick={() => {
+          <Link to="/" onClick={() => {
             setSidebarHidden(true)
           }}>Home</Link>
 
@@ -31,7 +31,7 @@ const NavBar = () => {
         </div>
 
         <div className='topbar'>
-          <h1>{window.location.pathname.split("/")[1]}</h1>
+          <h1>somehow get the page name</h1>
         </div>
       </div>
     </div>

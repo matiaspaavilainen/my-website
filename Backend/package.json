@@ -2,10 +2,12 @@
 	"name": "website-backend",
 	"version": "1.0.0",
 	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"start": "node index.js",
 		"dev": "nodemon index.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"deploy": "sudo chown -R www-data:www-data /var/www/matiaspaavilainen.com/html/ && sudo chmod -R 755 /var/www/matiaspaavilainen.com/html/ && sudo systemctl restart nginx"
 	},
 	"author": "Matias Paavilainen",
 	"license": "MIT",
@@ -14,7 +16,10 @@
 		"nodemon": "^3.1.9"
 	},
 	"dependencies": {
+		"cors": "^2.8.5",
 		"dotenv": "^16.4.7",
+		"exifreader": "^4.26.0",
+		"express": "^4.21.2",
 		"mysql2": "^3.12.0"
 	}
 }

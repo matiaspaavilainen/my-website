@@ -1,20 +1,22 @@
-require('dotenv').config()
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
 
-const mysql = require('mysql2');
+import photosRouter from './controllers/photos.js';
+const __dirname = path.resolve();
+const app = express();
 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
+app.use(express.json());
+//app.use(cors());
+
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/api/photos', photosRouter);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-
-connection.connect(function (err) {
-    if (err) {
-        console.error('Error connecting: ' + err.stack);
-        return;
-    }
-
-    console.log('Connected as id ' + connection.threadId);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
