@@ -1,37 +1,36 @@
 {
-    "name": "my-website",
-    "private": true,
-    "version": "0.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "GENERATE_SOURCEMAP=true vite build && sudo cp -r dist/* ../Backend/dist",
-        "deploy": "vite build && sudo cp -r dist/* /var/www/matiaspaavilainen.com/html/ && sudo chown -R www-data:www-data /var/www/matiaspaavilainen.com/html/ && sudo chmod -R 755 /var/www/matiaspaavilainen.com/html/ && sudo systemctl restart nginx",
-        "lint": "eslint . --fix",
-        "lint:css": "stylelint '**/*.css' --fix",
-        "preview": "vite preview"
-    },
-    "dependencies": {
-        "axios": "^1.7.9",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "react-router-dom": "^7.0.2",
-        "react-select": "^5.9.0"
-    },
-    "devDependencies": {
-        "@eslint/js": "^9.15.0",
-        "@types/react": "^18.3.12",
-        "@types/react-dom": "^18.3.1",
-        "@vitejs/plugin-react": "^4.3.4",
-        "eslint": "^9.15.0",
-        "eslint-plugin-react": "^7.37.2",
-        "eslint-plugin-react-hooks": "^5.0.0",
-        "eslint-plugin-react-refresh": "^0.4.14",
-        "globals": "^15.12.0",
-        "stylelint": "^16.11.0",
-        "stylelint-config-standard": "^36.0.1",
-        "stylelint-order": "^6.0.4",
-        "vite": "^6.0.1"
-    },
-    "proxy": "http://localhost:5000/"
+	"name": "my-website",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "GENERATE_SOURCEMAP=true vite build && sudo cp -r dist/* ../Backend/dist",
+		"deploy": "vite build && sudo cp -r dist/* /var/www/matiaspaavilainen.com/html/ && sudo chown -R www-data:www-data /var/www/matiaspaavilainen.com/html/ && sudo chmod -R 755 /var/www/matiaspaavilainen.com/html/ && sudo systemctl restart nginx",
+		"lint": "eslint . --fix",
+		"lint:css": "stylelint '**/*.css' --fix",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"axios": "^1.7.9",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-router-dom": "^7.0.2",
+		"react-select": "^5.9.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.15.0",
+		"@types/react": "^18.3.12",
+		"@types/react-dom": "^18.3.1",
+		"@vitejs/plugin-react": "^4.3.4",
+		"eslint": "^9.15.0",
+		"eslint-plugin-react": "^7.37.2",
+		"eslint-plugin-react-hooks": "^5.0.0",
+		"eslint-plugin-react-refresh": "^0.4.14",
+		"globals": "^15.12.0",
+		"stylelint": "^16.11.0",
+		"stylelint-config-standard": "^36.0.1",
+		"stylelint-order": "^6.0.4",
+		"vite": "^6.0.1"
+	}
 }

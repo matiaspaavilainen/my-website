@@ -4,7 +4,7 @@ const About = () => {
             <h1>WORK IN PROGRESS</h1>
             <p>Made with Vite + React.</p>
         </div>
-    )
-}
+    );
+};
 
-export default About
+export default About;

@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import 'dotenv/config'
+import 'dotenv/config';
 
 const connection = await mysql.createConnection({
     host: process.env.DB_HOST,
@@ -19,15 +19,13 @@ try {
 const getAllPhotos = async () => {
     try {
         const [results, fields] = await connection.query(
-            'SELECT * FROM `photos`'
+            'SELECT * FROM photos',
         );
-
-        console.log(results); // results contains rows returned by server
         return results;
     } catch (err) {
         console.log(err);
     }
-}
+};
 
 const getPhoto = async (id) => {
     try {
@@ -35,13 +33,22 @@ const getPhoto = async (id) => {
             'SELECT * FROM `photos` WHERE `id` = ?',
             [id]
         );
-
-        console.log(results); // results contains rows returned by server
         return results;
     } catch (err) {
         console.log(err);
     }
-}
+};
+
+const deletePhoto = async (id) => {
+    try {
+        await connection.query(
+            'DELETE FROM `photos` WHERE `id` = ?',
+            [id]
+        );
+    } catch (err) {
+        console.log(err);
+    }
+};
 
 const insertPhoto = async (time_taken, title, category, secondary_category, file_n) => {
     try {
@@ -53,6 +60,6 @@ const insertPhoto = async (time_taken, title, category, secondary_category, file
     } catch (err) {
         console.log(err);
     }
-}
+};
 
-export { getAllPhotos, getPhoto, insertPhoto };
+export { getAllPhotos, getPhoto, insertPhoto, deletePhoto };

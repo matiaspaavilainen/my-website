@@ -4,7 +4,7 @@ const ImageFilter = () => {
     const options = [
         { value: 'newest', label: 'Newest' },
         { value: 'oldest', label: 'Oldest' },
-    ]
+    ];
     return (
         <div className="image-filter">
             <Select
@@ -16,6 +16,6 @@ const ImageFilter = () => {
                 options={options} />
         </div>
     );
-}
+};
 
 export default ImageFilter;

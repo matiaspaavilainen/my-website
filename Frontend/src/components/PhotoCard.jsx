@@ -6,7 +6,7 @@ const PhotoCard = ({ photo }) => {
             <p>{photo.title} on {new Date(photo.time_taken).toLocaleDateString()}</p>
             <p>Matias Paavilainen</p>
         </div>
-    )
+    );
 };
 
 export default PhotoCard;

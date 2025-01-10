@@ -1,9 +1,9 @@
 .content {
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     font-size: large;
-    padding: 8px;
     margin: 8px;
-    border: 1px solid var(--text-color);
-    border-radius: 8px;
+    padding: 8px;
 }

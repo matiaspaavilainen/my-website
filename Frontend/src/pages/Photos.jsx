@@ -1,7 +1,7 @@
-import PhotoCard from '../components/PhotoCard'
-import ImageFilter from '../components/ImageFilter'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import PhotoCard from '../components/PhotoCard';
+import ImageFilter from '../components/ImageFilter';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const getAll = async () => {
     try {
@@ -9,7 +9,6 @@ const getAll = async () => {
         return response.data;
     } catch (error) {
         console.error("Error fetching photos:", error);
-        throw error; // Re-throw the error if needed
     }
 };
 
@@ -18,20 +17,25 @@ const Photos = () => {
 
     useEffect(() => {
         getAll().then(photos => {
-            setPhotos(photos);
-        })
-    }, [])
+            if (Array.isArray(photos)) {
+                setPhotos(photos);
+            } else {
+                console.error("Expected an array");
+                setPhotos([]);
+            }
+        });
+    }, []);
 
     return (
         <div>
             <ImageFilter />
             <div className='photo-grid'>
                 {photos.map((photo) => (
-                    <PhotoCard key={photo.id} photo={{ url: `/public/${photo.file_n}`, title: photo.title, time_taken: photo.time_taken }} />
+                    <PhotoCard key={photo.id} photo={{ url: `public/${photo.file_n}`, title: photo.title, time_taken: photo.time_taken }} />
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Photos
+export default Photos;
