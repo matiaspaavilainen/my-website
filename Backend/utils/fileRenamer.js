@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+const __dirname = path.resolve();
 
 /**
  * Renames the file based on it's given title to make sure it is unique
@@ -10,23 +11,20 @@ import path from 'path';
  * @param date
  * @returns {string} filename
  */
-const fileRenamer = (file, title, date) => {
+const fileRenamer = async (file, title, date) => {
     const filePath = path.join(__dirname, 'public/');
-    let filename = '';
+    const newFileName = `${title}_${date}.${file.split('.').pop()}`;
 
-    fs.rename(
-        path.join(filePath, 'toAdd/', file),
-        path.join(filePath, 'display/', `${title}_${date}.${file.split('.')[1]}`),
-        (error) => {
-            if (error) {
-                console.log(error);
-            } else {
-                filename = `${title}_${date}.${file.split('.')[1]}`;
-            }
-        }
-    );
-
-    return filename;
+    try {
+        await fs.promises.rename(
+            path.join(filePath, 'toAdd/', file),
+            path.join(filePath, 'display/', newFileName)
+        );
+        return newFileName;
+    } catch (error) {
+        console.error('Error renaming file:', error);
+        throw error;
+    }
 };
 
 export default fileRenamer;

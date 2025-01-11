@@ -3,27 +3,28 @@
 @import url("Photos.css");
 @import url("ImageSorting.css");
 @import url("About.css");
+@import url("Admin.css");
 
 :root {
-  font-family: monospace;
+    font-family: monospace;
 
-  --text-color: whitesmoke;
-  --background-color: slategray;
-  --on-background: mediumpurple;
-  --on-background-hover: mediumorchid;
+    --text-color: whitesmoke;
+    --background-color: slategray;
+    --on-background: mediumpurple;
+    --on-background-hover: mediumorchid;
 }
 
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 48px 0 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 48px 0 0;
 }
 
 h1,
 h2,
 h3,
 p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }

@@ -37,7 +37,8 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/Photos" element={<Photos />} />
                 <Route path="/About" element={<About />} />
-                <Route path='/Admin' element={<Admin />} />
+                {/* Enable only when running in dev mode locally, TODO: add auth to use all the time */}
+                {/* <Route path='/Admin' element={<Admin />} /> */}
             </Routes>
         </>
     );

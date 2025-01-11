@@ -1,0 +1,28 @@
+.submission-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.image-form {
+    display: flex;
+    flex-direction: column;
+    padding: 8xp;
+    margin: 32px;
+}
+
+.image-display {
+    padding: 8px;
+    margin: 32px;
+}
+
+#select {
+    color: black;
+}
+
+#folder-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

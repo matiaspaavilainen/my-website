@@ -6,22 +6,20 @@ import fileRenamer from '../utils/fileRenamer.js';
 const adminRouter = express.Router();
 
 adminRouter.post('/', async (req, res) => {
-    const body = req.body[0];
-
-    const file_n = fileRenamer(body.file_n, body.title, body.date);
+    const body = req.body;
 
     try {
+        const file_n = await fileRenamer(body.file_n, body.title, body.date);
         const savedPhoto = await insertPhoto(
             body.date,
             body.title,
-            body.category,
-            body.secondary_category,
+            JSON.stringify(body.category),
             file_n
         );
         res.status(201).json(savedPhoto);
-    } catch (err) {
-        console.log('Error inserting photo: ', err);
-        res.status(500).json({ err: 'Failed to send photo' });
+    } catch (error) {
+        console.error('Error inserting photo: ', error);
+        res.status(500).json({ error: 'Failed to send photo' });
     }
 });
 
@@ -29,7 +27,8 @@ adminRouter.delete('/:id', async (req, res) => {
     try {
         await deletePhoto(req.params.id);
         res.status(204).end();
-    } catch {
+    } catch (error) {
+        console.error('Error deleting:', error);
         res.status(500).json({ error: 'Failed to delete photo' });
     }
 });

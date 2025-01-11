@@ -23,7 +23,7 @@ const getAllPhotos = async () => {
         );
         return results;
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 };
 
@@ -35,7 +35,7 @@ const getPhoto = async (id) => {
         );
         return results;
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 };
 
@@ -50,13 +50,13 @@ const deletePhoto = async (id) => {
     }
 };
 
-const insertPhoto = async (time_taken, title, category, secondary_category, file_n) => {
+const insertPhoto = async (time_taken, title, category, file_n) => {
     try {
         await connection.query(
-            'INSERT INTO `photos` (time_taken, title, category, secondary_category, file_n) VALUES (?, ?, ?, ?, ?)',
-            [time_taken, title, category, secondary_category, file_n]
+            'INSERT INTO `photos` (time_taken, title, category, file_n) VALUES (?, ?, ?, ?)',
+            [time_taken, title, category, file_n]
         );
-        console.log('Photo added with title ', title);
+        console.log('Photo added with title', title);
     } catch (err) {
         console.log(err);
     }

@@ -31,7 +31,7 @@ const Photos = () => {
             <ImageFilter />
             <div className='photo-grid'>
                 {photos.map((photo) => (
-                    <PhotoCard key={photo.id} photo={{ url: `public/${photo.file_n}`, title: photo.title, time_taken: photo.time_taken }} />
+                    <PhotoCard key={photo.id} photo={{ url: `public/display/${photo.file_n}`, title: photo.title, time_taken: photo.time_taken }} />
                 ))}
             </div>
         </div>
