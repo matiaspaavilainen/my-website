@@ -1,18 +1,22 @@
 import express from 'express';
 import { insertPhoto, deletePhoto } from '../models/database.js';
 import fileReader from '../utils/fileReader.js';
+import fileRenamer from '../utils/fileRenamer.js';
 
 const adminRouter = express.Router();
 
 adminRouter.post('/', async (req, res) => {
     const body = req.body[0];
+
+    const file_n = fileRenamer(body.file_n, body.title, body.date);
+
     try {
         const savedPhoto = await insertPhoto(
-            body.time_taken,
+            body.date,
             body.title,
             body.category,
             body.secondary_category,
-            body.file_n
+            file_n
         );
         res.status(201).json(savedPhoto);
     } catch (err) {
@@ -34,7 +38,8 @@ adminRouter.get('/files', async (req, res) => {
     try {
         const files = await fileReader();
         res.status(200).json(files);
-    } catch {
+    } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Failed to fetch files' });
     }
 });

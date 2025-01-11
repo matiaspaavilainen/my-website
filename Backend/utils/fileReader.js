@@ -4,12 +4,17 @@ import path from 'path';
 
 const __dirname = path.resolve();
 
+/**
+ * Reads files in the folder and extracts the date from the exif data.
+ * @returns {string []}
+ */
 const fileReader = async () => {
     let file_data = [];
-    const files = fs.readdirSync(path.join(__dirname, 'public'));
+    const filePath = path.join(__dirname, 'public/toAdd/');
+    const files = fs.readdirSync(filePath);
 
     const promises = files.map(async (file) => {
-        const date = await dateReader(path.join(__dirname, 'public', file));
+        const date = await dateReader(path.join(filePath, file));
         const obj = {
             filename: file,
             date: date
