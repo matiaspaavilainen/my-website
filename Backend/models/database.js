@@ -50,11 +50,11 @@ const deletePhoto = async (id) => {
     }
 };
 
-const insertPhoto = async (time_taken, title, category, file_n) => {
+const insertPhoto = async (time_taken, title, category, file_n, thumb_n) => {
     try {
         await connection.query(
-            'INSERT INTO `photos` (time_taken, title, category, file_n) VALUES (?, ?, ?, ?)',
-            [time_taken, title, category, file_n]
+            'INSERT INTO `photos` (time_taken, title, category, file_n, thumb_n) VALUES (?, ?, ?, ?, ?)',
+            [time_taken, title, category, file_n, thumb_n]
         );
         console.log('Photo added with title', title);
     } catch (err) {
