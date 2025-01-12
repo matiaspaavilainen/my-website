@@ -23,6 +23,7 @@
 		"dotenv": "^16.4.7",
 		"exifreader": "^4.26.0",
 		"express": "^4.21.2",
+		"image-thumbnail": "^1.0.17",
 		"mysql2": "^3.12.0"
 	}
 }
