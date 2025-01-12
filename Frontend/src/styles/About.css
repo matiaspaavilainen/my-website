@@ -1,9 +1,31 @@
 .content {
-    border: 1px solid var(--text-color);
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.content.text {
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
     font-size: large;
     margin: 8px;
     padding: 8px;
+    width: 50%;
+    font-size: x-large;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#underline {
+    border: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--text-color);
+    margin: 8px;
+    align-self: center;
 }

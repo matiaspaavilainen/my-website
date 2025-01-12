@@ -1,16 +1,18 @@
 .links {
     display: flex;
-    gap: 8px;
+    gap: 64px;
     justify-content: center;
+    align-items: center;
     padding: 8px;
+    height: 60vh;
 }
 
 .icon {
     border-radius: 8px;
-    height: 100px;
+    height: auto;
     padding: 4px;
     transition: 0.2s;
-    width: 100px;
+    width: 200px;
 }
 
 .icon:hover {

@@ -40,7 +40,7 @@ const Admin = () => {
     const [title, setTitle] = useState('');
     const [categories, setCategories] = useState([]);
 
-    //TODO: get possible values dynamically from DB
+    // TODO: allow user generated values
     const options = [
         { value: 'Space', label: 'Space' },
         { value: 'Crete', label: 'Crete' },
@@ -100,6 +100,7 @@ const Admin = () => {
                         <img src={`/${currentFile.filename}`} alt='Cant show image' width={1000} />
                     </div>
                     <div>
+                        <h2>{imageFiles.length} files remaining.</h2>
                         <form className='image-form' onSubmit={handleSubmit}>
                             <label>
                                 Date:

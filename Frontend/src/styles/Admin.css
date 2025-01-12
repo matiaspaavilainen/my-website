@@ -10,6 +10,21 @@
     flex-direction: column;
     padding: 8xp;
     margin: 32px;
+    font-size: large;
+}
+
+.image-form input {
+    padding: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    display: flex;
+}
+
+button {
+    padding: 8px;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    margin-top: 12px;
 }
 
 .image-display {

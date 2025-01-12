@@ -1,33 +1,50 @@
 .photo-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 8px;
-    justify-content: center;
-    padding: 8px;
+    padding: 12px;
+    grid-template-columns: auto auto auto auto;
 }
 
-.photo-card {
+@media screen and (max-width: 1200px) {
+    .photo-grid {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .photo-grid {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .photo-grid {
+        grid-template-columns: auto;
+    }
+}
+
+.photo-card-small {
     border: 1px solid transparent;
     border-radius: 8px;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%);
-    max-width: 70vw;
     overflow: hidden;
     position: relative;
     transition: 0.2s;
+    max-width: 600px;
 }
 
-.photo-card:hover {
+.photo-card-small:hover {
     border-color: var(--text-color);
     cursor: pointer;
 }
 
-.photo-card img {
+.photo-card-small img {
     height: 100%;
     object-fit: cover;
     width: 100%;
 }
 
-.photo-card p {
+.photo-card-small p {
     background-color: rgb(0 0 0 / 50%);
     bottom: 0;
     box-sizing: border-box;
@@ -39,7 +56,11 @@
     width: 100%;
 }
 
-.photo-card p:last-child {
-    background-color: transparent;
-    text-align: right;
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 2px 0;
+    background-color: var(--on-background);
+    width: 100%;
+    text-align: center;
 }

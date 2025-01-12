@@ -31,21 +31,19 @@
 
 .sidebar {
     background-color: var(--on-background-hover);
-    border-radius: 8px;
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     font-size: large;
-    height: fit-content;
+    height: 100vh;
     left: 0;
-    margin: 4px;
     min-width: fit-content;
     overflow: hidden;
-    padding-top: 41px;
+    padding-top: 48px;
     position: absolute;
     top: 0;
     transition: 0.4s;
-    width: 16%;
+    width: 18%;
 }
 
 .sidebar.hidden {
@@ -58,6 +56,7 @@
     padding: 8px;
     text-decoration: none;
     transition: 0.2s;
+    font-size: x-large;
 }
 
 .sidebar a:hover {

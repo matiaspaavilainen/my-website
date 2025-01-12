@@ -4,18 +4,19 @@
 @import url("ImageSorting.css");
 @import url("About.css");
 @import url("Admin.css");
+@import url("PhotoCard.css");
 
 :root {
     font-family: monospace;
 
     --text-color: whitesmoke;
-    --background-color: slategray;
+    --background: slategray;
     --on-background: mediumpurple;
     --on-background-hover: mediumorchid;
 }
 
 body {
-    background-color: var(--background-color);
+    background-color: var(--background);
     color: var(--text-color);
     margin: 0;
     padding: 48px 0 0;
