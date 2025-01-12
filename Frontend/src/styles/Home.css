@@ -50,4 +50,8 @@
     .image-container {
         width: 80%;
     }
+
+    .icon {
+        width: 100px;
+    }
 }

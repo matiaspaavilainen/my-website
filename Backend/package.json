@@ -7,7 +7,7 @@
 		"start": "node index.js",
 		"dev": "nodemon index.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"deploy": "sudo chown -R www-data:www-data /var/www/matiaspaavilainen.com/html/ && sudo chmod -R 755 /var/www/matiaspaavilainen.com/html/ && sudo systemctl restart nginx"
+		"deploy": "sudo systemctl restart matiaspaavilainen"
 	},
 	"author": "Matias Paavilainen",
 	"license": "MIT",
