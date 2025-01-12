@@ -5,19 +5,19 @@
     padding: 12px;
 }
 
-@media screen and (width <= 1200px) {
+@media screen and (width <=1200px) {
     .photo-grid {
         grid-template-columns: auto auto auto;
     }
 }
 
-@media screen and (width <= 900px) {
+@media screen and (width <=900px) {
     .photo-grid {
         grid-template-columns: auto auto;
     }
 }
 
-@media screen and (width <= 600px) {
+@media screen and (width <=600px) {
     .photo-grid {
         grid-template-columns: auto;
     }
@@ -42,6 +42,7 @@
     height: 100%;
     object-fit: cover;
     width: 100%;
+    aspect-ratio: 3 / 2;
 }
 
 .photo-card-small p {
