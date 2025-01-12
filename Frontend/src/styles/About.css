@@ -29,3 +29,9 @@
     margin: 8px;
     width: 100%;
 }
+
+@media screen and (orientation: portrait) {
+    .content.text {
+        width: 80px;
+    }
+}
