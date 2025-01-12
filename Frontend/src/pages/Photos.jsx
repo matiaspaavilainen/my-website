@@ -55,7 +55,7 @@ const Photos = () => {
                 {photos.map((photo) => (
                     <div className="photo-card-small" key={photo.file_n}>
                         <img
-                            src={`/thumbnails/${photo.thumb_n}`}
+                            src={`public/thumbnails/${photo.thumb_n}`}
                             alt={photo.title}
                             loading="lazy"
                             onClick={() => {

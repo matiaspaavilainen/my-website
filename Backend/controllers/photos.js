@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllPhotos, getPhoto } from '../models/database.js';
+import { getAllPhotos, getRandomPhoto } from '../models/database.js';
 
 const photosRouter = express.Router();
 
@@ -12,9 +12,9 @@ photosRouter.get('/', async (req, res) => {
     }
 });
 
-photosRouter.get('/:id', async (req, res) => {
+photosRouter.get('/random', async (req, res) => {
     try {
-        const photo = await getPhoto(req.params.id);
+        const photo = await getRandomPhoto();
         res.json(photo);
     } catch {
         res.status(500).json({ error: 'Failed to fetch photo' });

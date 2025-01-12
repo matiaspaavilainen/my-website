@@ -16,7 +16,7 @@ const App = () => {
     useEffect(() => {
         switch (location.pathname) {
             case '/':
-                setTopText('Matias Paavilainen');
+                setTopText('Home');
                 break;
             case '/Photos':
                 setTopText('Photos');
@@ -32,13 +32,14 @@ const App = () => {
     }, [location.pathname]);
     return (
         <>
+            {/* TODO: make navbar close when clicking anywhere else */}
             <NavBar topText={topText} />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/Photos" element={<Photos />} />
                 <Route path="/About" element={<About />} />
                 {/* Enable only when running in dev mode locally, TODO: add auth to use all the time */}
-                {/* <Route path='/Admin' element={<Admin />} /> */}
+                <Route path='/Admin' element={<Admin />} />
             </Routes>
         </>
     );

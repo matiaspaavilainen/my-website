@@ -6,14 +6,7 @@ const About = () => {
     return (
         <div className='content'>
             <div className='content text'>
-                <p>
-                    A photo gallery website made with React and Node.js.
-                    Frontend is created with Vite + React, React Router adn axios used for routing within the frontend.
-                    The Node.js backend serves the frontend as a static HTML file.
-                    Backend routing is implemented with Express. Information such as title and category for each image are stored in a MySQL database,
-                    and fetched to the website with mysql2. The creation time is extracted from the image&apos;s
-                    exif data using ExifReader and is also added to the database.
-                    The website is self-hosted on a Ubuntu server with nginx.</p>
+                <p>A photo gallery website made with React and Node.js.</p>
             </div>
             <div className='content text'>
                 <p>

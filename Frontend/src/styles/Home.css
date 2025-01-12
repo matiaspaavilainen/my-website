@@ -1,10 +1,36 @@
-.links {
-    display: flex;
-    gap: 64px;
-    justify-content: center;
+.container {
     align-items: center;
-    padding: 8px;
-    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    height: 100%;
+    justify-content: center;
+    padding: 16px;
+    width: 100%;
+}
+
+.image-container {
+    width: 40%;
+}
+
+.image {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.image:hover {
+    border-color: var(--text-color);
+}
+
+.links {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
 }
 
 .icon {
@@ -17,4 +43,10 @@
 
 .icon:hover {
     background-color: var(--on-background-hover);
+}
+
+@media screen and (orientation: portrait) {
+    .image-container {
+        width: 80%;
+    }
 }

@@ -1,35 +1,35 @@
 .submission-wrapper {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 8px;
 }
 
 .image-form {
     display: flex;
     flex-direction: column;
-    padding: 8xp;
-    margin: 32px;
     font-size: large;
+    margin: 32px;
+    padding: 8px;
 }
 
 .image-form input {
-    padding: 10px;
     border: 1px solid gainsboro;
     border-radius: 4px;
     display: flex;
+    padding: 10px;
 }
 
 button {
-    padding: 8px;
     border: 1px solid gainsboro;
     border-radius: 4px;
     margin-top: 12px;
+    padding: 8px;
 }
 
 .image-display {
-    padding: 8px;
     margin: 32px;
+    padding: 8px;
 }
 
 #select {
@@ -37,7 +37,7 @@ button {
 }
 
 #folder-empty {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 }

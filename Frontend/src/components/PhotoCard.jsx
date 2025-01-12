@@ -21,7 +21,7 @@ const PhotoCard = ({ time_taken, title, category, file_n, setShowPhotoLarge, set
         <div className='photo-card-large' onClick={(e) => e.stopPropagation()}>
             <div>
                 <img className='photo-card-large img'
-                    src={`/display/${file_n}`}
+                    src={`public/display/${file_n}`}
                     alt={title}
                     loading="lazy" />
             </div>

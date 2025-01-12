@@ -53,10 +53,10 @@
 
 .sidebar a {
     color: var(--text-color);
+    font-size: x-large;
     padding: 8px;
     text-decoration: none;
     transition: 0.2s;
-    font-size: x-large;
 }
 
 .sidebar a:hover {

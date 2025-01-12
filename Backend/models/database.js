@@ -27,11 +27,10 @@ const getAllPhotos = async () => {
     }
 };
 
-const getPhoto = async (id) => {
+const getRandomPhoto = async () => {
     try {
         const [results, fields] = await connection.query(
-            'SELECT * FROM `photos` WHERE `id` = ?',
-            [id]
+            'SELECT * FROM `photos` ORDER BY RAND() LIMIT 1',
         );
         return results;
     } catch (err) {
@@ -62,4 +61,4 @@ const insertPhoto = async (time_taken, title, category, file_n, thumb_n) => {
     }
 };
 
-export { getAllPhotos, getPhoto, insertPhoto, deletePhoto };
+export { getAllPhotos, getRandomPhoto, insertPhoto, deletePhoto };
