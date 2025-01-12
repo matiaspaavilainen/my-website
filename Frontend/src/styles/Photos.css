@@ -30,7 +30,7 @@
     max-width: 600px;
     overflow: hidden;
     position: relative;
-    transition: 0.2s;
+    transition: all 0.2s;
 }
 
 .photo-card-small:hover {
