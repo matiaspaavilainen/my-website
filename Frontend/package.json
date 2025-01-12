@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "GENERATE_SOURCEMAP=true vite build && sudo cp -r dist/* ../Backend/dist",
-		"deploy": "vite build && sudo cp -r dist/* /var/www/matiaspaavilainen.com/html/ && sudo chown -R www-data:www-data /var/www/matiaspaavilainen.com/html/ && sudo chmod -R 755 /var/www/matiaspaavilainen.com/html/ && sudo systemctl restart nginx",
+		"deploy": "npm run build && sudo systemctl restart matiaspaavilainen",
 		"lint": "eslint . --fix",
 		"lint:css": "stylelint '**/*.css' --fix",
 		"preview": "vite preview"
