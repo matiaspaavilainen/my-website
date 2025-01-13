@@ -19,7 +19,8 @@ app.use('/api/photos', photosRouter);
 app.use('/admin', adminRouter);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    console.log(`Redirecting invalid request for ${req.url} to home page`);
+    res.redirect(302, '/');
 });
 
 const PORT = process.env.PORT || 5000;
