@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import express from 'express';
 import path from 'path';
-import cors from 'cors';
+//import cors from 'cors';
 
 import photosRouter from './controllers/photos.js';
-import adminRouter from './controllers/admin.js';
+//import adminRouter from './controllers/admin.js';
 const __dirname = path.resolve();
 const app = express();
 
