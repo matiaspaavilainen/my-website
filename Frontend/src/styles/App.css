@@ -11,8 +11,8 @@
 
     --text-color: whitesmoke;
     --background: slategray;
-    --on-background: mediumpurple;
-    --on-background-hover: mediumorchid;
+    --on-background: darkslategray;
+    --on-background-hover: darkseagreen;
 }
 
 body {
