@@ -37,7 +37,7 @@ const Home = () => {
                 <Link to="/Photos" onClick={() => {
                 }}>
                     <img className='image'
-                        src={`public/display/${photo.file_n}`}
+                        src={`public/display/${photo.thumb_n}`}
                         alt={photo.title}
                         loading="lazy"
                     />
