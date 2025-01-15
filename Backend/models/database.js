@@ -19,7 +19,7 @@ try {
 const getAllPhotos = async () => {
     try {
         const [results, fields] = await connection.query(
-            'SELECT * FROM photos',
+            'SELECT * FROM photos ORDER BY time_taken DESC',
         );
         return results;
     } catch (err) {
