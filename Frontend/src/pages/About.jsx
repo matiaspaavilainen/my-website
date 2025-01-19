@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className='content'>
             <div className='content text'>
-                <p>A photo gallery website made with React and Node.js.</p>
+                <p>A photo gallery website made with React and Node.js. More information on <a href='https://github.com/matiaspaavilainen/my-website' target='_blank'>GitHub</a>. </p>
             </div>
             <div className='content text'>
                 <p>
