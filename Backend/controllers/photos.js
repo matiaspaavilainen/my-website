@@ -3,7 +3,7 @@ import { getAllPhotos, getRandomPhoto } from '../models/database.js';
 
 const photosRouter = express.Router();
 
-photosRouter.get('/', async (req, res) => {
+photosRouter.get('/', async (_, res) => {
     try {
         const photos = await getAllPhotos();
         res.json(photos);
@@ -12,7 +12,7 @@ photosRouter.get('/', async (req, res) => {
     }
 });
 
-photosRouter.get('/random', async (req, res) => {
+photosRouter.get('/random', async (_, res) => {
     try {
         const photo = await getRandomPhoto();
         res.json(photo);

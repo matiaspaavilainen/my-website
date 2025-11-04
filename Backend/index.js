@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import path from 'path';
+import path from 'node:path';
 //import cors from 'cors';
 
 import photosRouter from './controllers/photos.js';

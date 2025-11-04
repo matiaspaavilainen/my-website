@@ -1,6 +1,6 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import dateReader from './dateReader.js';
-import path from 'path';
+import path from 'node:path';
 
 const __dirname = path.resolve();
 
