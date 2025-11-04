@@ -3,7 +3,7 @@
     gap: 8px;
     grid-template-columns: auto auto auto auto;
     padding: 12px;
-    margin-bottom: 8px
+    margin-bottom: 12px
 }
 
 @media screen and (width <=1200px) {
