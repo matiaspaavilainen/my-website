@@ -5,23 +5,23 @@ import githubWhite from '../assets/github-white.svg';
 import linkedinWhite from '../assets/linkedin-white.svg';
 import { useEffect, useState } from 'react';
 
-const getRandom = async () => {
-    try {
-        const response = await axios.get("/api/photos/random");
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching photos:", error);
-    }
-};
+// const getRandom = async () => {
+//     try {
+//         const response = await axios.get("/api/photos/random");
+//         return response.data;
+//     } catch (error) {
+//         console.error("Error fetching photos:", error);
+//     }
+// };
 
 const Home = () => {
-    const [photo, setPhoto] = useState('');
+    // const [photo, setPhoto] = useState('');
 
-    useEffect(() => {
-        getRandom().then(photo => {
-            setPhoto(photo.shift());
-        });
-    }, []);
+    // useEffect(() => {
+    //     getRandom().then(photo => {
+    //         setPhoto(photo.shift());
+    //     });
+    // }, []);
 
     return (
         <div className='container'>
@@ -33,7 +33,7 @@ const Home = () => {
                     <img src={linkedinWhite} alt='LinkedIn' />
                 </a>
             </div>
-            <div className='image-container'>
+            {/* <div className='image-container'>
                 <Link to="/Photos" onClick={() => {
                 }}>
                     <img className='image'
@@ -42,7 +42,7 @@ const Home = () => {
                         loading="lazy"
                     />
                 </Link>
-            </div>
+            </div> */}
         </div>
     );
 };
