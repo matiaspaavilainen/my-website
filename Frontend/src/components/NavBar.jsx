@@ -28,6 +28,11 @@ const NavBar = ({ topText }) => {
                         setSidebarHidden(true);
                     }}>About</Link>
 
+                    # temp fix for sure
+                    <Link to="/Admin" onClick={() => {
+                        setSidebarHidden(true);
+                    }}>Admin</Link>
+
                 </div>
 
                 <div className='topbar'>
