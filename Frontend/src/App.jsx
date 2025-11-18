@@ -6,7 +6,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Photos from './pages/Photos';
 import About from './pages/About';
-// import Admin from './pages/Admin';
+import Admin from './pages/Admin';
 import { useEffect, useState } from 'react';
 
 const App = () => {
@@ -24,9 +24,9 @@ const App = () => {
             case '/About':
                 setTopText('About');
                 break;
-            // case '/Admin':
-            //     setTopText('Admin');
-            //     break;
+            case '/Admin':
+                setTopText('Admin');
+                break;
         };
 
     }, [location.pathname]);
@@ -39,7 +39,7 @@ const App = () => {
                 <Route path="/Photos" element={<Photos />} />
                 <Route path="/About" element={<About />} />
                 {/* Enable only when running in dev mode locally, TODO: add auth to use all the time */}
-                {/* <Route path='/Admin' element={<Admin />} /> */}
+                <Route path='/Admin' element={<Admin />} />
             </Routes>
         </>
     );
