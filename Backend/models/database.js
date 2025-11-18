@@ -17,7 +17,8 @@ const getAllPhotos = async () => {
         );
         return results;
     } catch (err) {
-        console.error(err);
+        console.error("getAllPhotos error: ", err);
+        throw err;
     }
 };
 
@@ -28,7 +29,8 @@ const getRandomPhoto = async () => {
         );
         return results;
     } catch (err) {
-        console.error(err);
+        console.error("getRandomPhoto error: ", err);
+        throw err;
     }
 };
 
@@ -40,6 +42,7 @@ const deletePhoto = async (id) => {
         );
     } catch (err) {
         console.log(err);
+        throw err;
     }
 };
 
@@ -52,6 +55,7 @@ const insertPhoto = async (time_taken, title, category, file_n, thumb_n) => {
         console.log('Photo added with title', title);
     } catch (err) {
         console.log(err);
+        throw err;
     }
 };
 
