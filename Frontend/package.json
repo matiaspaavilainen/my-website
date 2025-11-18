@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "GENERATE_SOURCEMAP=true vite build && sudo cp -r dist/* ../Backend/dist",
+		"build": "GENERATE_SOURCEMAP=true vite build",
 		"deploy": "npm run build && sudo systemctl restart matiaspaavilainen",
 		"lint": "eslint . --fix",
 		"lint:css": "stylelint '**/*.css' --fix",

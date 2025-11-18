@@ -1,0 +1,19 @@
+services:
+    server:
+        container_name: matiaspaavilainen
+        build:
+            context: ..
+            dockerfile: Backend/Dockerfile
+            no_cache: true
+        env_file:
+            - .env
+        environment:
+            NODE_ENV: production
+            DB_HOST: db
+        ports:
+            - 5000:5000
+        depends_on:
+            db:
+                condition: service_healthy
+        networks:
+            - web-network

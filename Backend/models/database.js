@@ -12,7 +12,7 @@ const pool = mysql.createPool({
 
 const getAllPhotos = async () => {
     try {
-        const [results, fields] = await pool.query(
+        const [results] = await pool.query(
             'SELECT * FROM photos ORDER BY time_taken DESC',
         );
         return results;
@@ -23,7 +23,7 @@ const getAllPhotos = async () => {
 
 const getRandomPhoto = async () => {
     try {
-        const [results, fields] = await pool.query(
+        const [results] = await pool.query(
             'SELECT * FROM `photos` ORDER BY RAND() LIMIT 1',
         );
         return results;
