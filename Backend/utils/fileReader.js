@@ -20,7 +20,8 @@ const fileReader = async () => {
         };
     });
 
-    const file_data = await Promise.all(promises);
+    let file_data = (await Promise.all(promises)).toSorted((a, b) => a.date - b.date);
+
     return file_data;
 };
 
