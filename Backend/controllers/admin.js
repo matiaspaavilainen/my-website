@@ -9,7 +9,7 @@ adminRouter.post('/', async (req, res) => {
     const body = req.body;
 
     try {
-        const [file_n, thumb_n] = fileRenamer(body.file_n, body.title, body.date);
+        const [file_n, thumb_n] = await fileRenamer(body.file_n, body.title, body.date);
         const savedPhoto = await insertPhoto(
             body.date,
             body.title,
