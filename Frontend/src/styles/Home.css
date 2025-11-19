@@ -45,6 +45,11 @@
     background-color: var(--on-background-hover);
 }
 
+.no-images {
+    color: var(--text-color);
+    text-align: center;
+}
+
 @media screen and (orientation: portrait) {
     .image-container {
         width: 80%;

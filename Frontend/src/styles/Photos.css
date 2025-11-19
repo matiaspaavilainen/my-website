@@ -58,6 +58,11 @@
     width: 100%;
 }
 
+.no-images {
+    color: var(--text-color);
+    text-align: center;
+}
+
 footer {
     background-color: var(--on-background);
     bottom: 0;

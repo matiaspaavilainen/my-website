@@ -1,4 +1,4 @@
-import ImageFilter from '../components/ImageFilter';
+//import ImageFilter from '../components/ImageFilter';
 import PhotoCard from '../components/PhotoCard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -37,53 +37,62 @@ const Photos = () => {
         };
 
         if (showPhotoLarge) {
-            window.addEventListener('keydown', handleKeyDown);
+            globalThis.addEventListener('keydown', handleKeyDown);
         } else {
-            window.removeEventListener('keydown', handleKeyDown);
+            globalThis.removeEventListener('keydown', handleKeyDown);
         }
 
         return () => {
-            window.removeEventListener('keydown', handleKeyDown);
+            globalThis.removeEventListener('keydown', handleKeyDown);
         };
     }, [showPhotoLarge]);
 
-    return (
-        <div >
-            {/* TODO: Implement filter */}
-            {/* <ImageFilter /> */}
-            <div className='photo-grid'>
-                {photos.map((photo) => (
-                    <div className="photo-card-small" key={photo.file_n}>
-                        <img
-                            src={`public/thumbnails/${photo.thumb_n}`}
-                            alt={photo.title}
-                            loading="lazy"
-                            onClick={() => {
-                                setPhotoLarge(photo);
-                                setShowPhotoLarge(true);
-                            }}
-                        />
-                        <p>{photo.title}</p>
-                    </div>
-                ))}
+    if (photos.length == 0) {
+        return (
+            <div>
+                <h2 className='no-images'>No Images Found!</h2>
             </div>
-            <div className={`card-overlay ${showPhotoLarge ? 'show' : ''}`} onClick={() => { setShowPhotoLarge(false); }} >
-                {showPhotoLarge && <PhotoCard
-                    {...photoLarge}
-                    setShowPhotoLarge={setShowPhotoLarge}
-                    setPhotoLarge={setPhotoLarge}
-                    photoLarge={photoLarge}
-                    photos={photos}
-                />
-                }
-            </div>
-            <footer>
-                <p>© Matias Paavilainen 2025 | This work is licensed under
-                    a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target='_blank'> Creative Commons Attribution-NonCommercial 4.0 International License</a>
-                </p>
-            </footer>
-        </div >
-    );
+        );
+    } else {
+        return (
+            <div >
+                {/* TODO: Implement filter */}
+                {/* <ImageFilter /> */}
+                <div className='photo-grid'>
+                    {photos.map((photo) => (
+                        <div className="photo-card-small" key={photo.file_n}>
+                            <img
+                                src={`public/thumbnails/${photo.thumb_n}`}
+                                alt={photo.title}
+                                loading="lazy"
+                                onClick={() => {
+                                    setPhotoLarge(photo);
+                                    setShowPhotoLarge(true);
+                                }}
+                            />
+                            <p>{photo.title}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className={`card-overlay ${showPhotoLarge ? 'show' : ''}`} onClick={() => { setShowPhotoLarge(false); }} >
+                    {showPhotoLarge && <PhotoCard
+                        {...photoLarge}
+                        setShowPhotoLarge={setShowPhotoLarge}
+                        setPhotoLarge={setPhotoLarge}
+                        photoLarge={photoLarge}
+                        photos={photos}
+                    />
+                    }
+                </div>
+                <footer>
+                    <p>© Matias Paavilainen 2025 | This work is licensed under
+                        a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target='_blank'> Creative Commons Attribution-NonCommercial 4.0 International License</a>
+                    </p>
+                </footer>
+            </div >
+        );
+    }
+
 };
 
 export default Photos;
