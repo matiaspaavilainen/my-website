@@ -69,6 +69,7 @@ const Admin = () => {
         imageFiles.shift();
         setImageFiles(imageFiles);
         setCurrentFile(imageFiles[0]);
+        console.log(currentFile);
         setTitle('');
         setCategories([]);
     };
@@ -97,14 +98,13 @@ const Admin = () => {
             {currentFile &&
                 <div className='submission-wrapper'>
                     <div className='image-display'>
-                        <img src={`/toAdd/${currentFile.filename}`} alt='Cant show image' width={1000} />
+                        <img src={`/public/toAdd/${currentFile.filename}`} alt='Cant show image' width={1000} />
                     </div>
                     <div>
                         <h2>{imageFiles.length} files remaining.</h2>
                         <form className='image-form' onSubmit={handleSubmit}>
                             <label>
-                                Date:
-                                <input
+                                Date: <input
                                     type='text'
                                     value={new Date(currentFile.date).toLocaleDateString()}
                                     name='Date'
@@ -112,8 +112,7 @@ const Admin = () => {
                                 />
                             </label>
                             <label>
-                                Title:
-                                <input
+                                Title: <input
                                     type='text'
                                     value={title}
                                     name='Title'
@@ -138,8 +137,7 @@ const Admin = () => {
                                 />
                             </label>
                             <label>
-                                Filename:
-                                <input
+                                Filename: <input
                                     type='text'
                                     value={currentFile.filename}
                                     name='Filename'

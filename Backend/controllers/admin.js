@@ -36,7 +36,7 @@ adminRouter.delete('/:id', async (req, res) => {
 
 adminRouter.get('/files', async (req, res) => {
     try {
-        const files = fileReader();
+        const files = await fileReader();
         res.status(200).json(files);
     } catch (error) {
         console.log(error);
