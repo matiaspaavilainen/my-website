@@ -23,6 +23,7 @@ COPY Backend/ .
 COPY --from=frontend-build /frontend/dist ./dist
 
 # Run the application as a non-root user.
+RUN chown -R node:node /usr/src/app/public
 USER node
 
 
