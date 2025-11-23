@@ -28,9 +28,9 @@ const NavBar = ({ topText }) => {
                         setSidebarHidden(true);
                     }}>About</Link>
 
-                    <Link to="/Admin" onClick={() => {
+                    {/* <Link to="/Admin" onClick={() => {
                         setSidebarHidden(true);
-                    }}>Admin</Link>
+                    }}>Admin</Link> */}
 
                 </div>
 
