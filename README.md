@@ -22,9 +22,8 @@ My personal website, visitors can view photos I've taken.
   [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 - **Hosting**
   
-  [![Nginx](https://img.shields.io/badge/Nginx-269539?style=for-the-badge&logo=nginx&logoColor=white)](https://nginx.org/en/)
+  [![Traefik](https://img.shields.io/badge/Traefik-24A1C1?style=for-the-badge&logo=traefik&logoColor=white)](https://traefik.io/)
   [![matiaspaavilainen.com](https://img.shields.io/badge/matiaspaavilainen.com-darkslategray?style=for-the-badge&logoColor=white)](https://matiaspaavilainen.com)
-
 
 ## Features
 
@@ -32,6 +31,5 @@ Simple UI and navigation with [React Router](https://reactrouter.com/), focusing
 
 - **Missing features / problems**
   - Filtering and sorting system for photos
-  - Authorisation to enable adding photos from anywhere for authenticated users
   - Additional controls, e.g. keyboard for closing the sidebar and scrolling images in large view
   - Enhance mobile user experience, currently just okay
