@@ -6,34 +6,22 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Photos from './pages/Photos';
 import About from './pages/About';
-//import Admin from './pages/Admin';
-import { useEffect, useState } from 'react';
+// import Admin from './pages/Admin';
+
+const links = [
+    { link: "/", text: "Home" },
+    { link: "/Photos", text: "Photos" },
+    { link: "/About", text: "About" },
+    // { link: "/Admin", text: "Admin" },
+];
 
 const App = () => {
-    const [topText, setTopText] = useState("Matias Paavilainen");
     const location = useLocation();
 
-    useEffect(() => {
-        switch (location.pathname) {
-            case '/':
-                setTopText('Home');
-                break;
-            case '/Photos':
-                setTopText('Photos');
-                break;
-            case '/About':
-                setTopText('About');
-                break;
-            // case '/Admin':
-            //     setTopText('Admin');
-            //     break;
-        };
-
-    }, [location.pathname]);
     return (
         <>
             {/* TODO: make navbar close when clicking anywhere else */}
-            <NavBar topText={topText} />
+            <NavBar links={links} location={location} />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/Photos" element={<Photos />} />

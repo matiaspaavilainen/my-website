@@ -9,17 +9,15 @@
 :root {
     font-family: monospace;
 
-    --text-color: whitesmoke;
-    --background: slategray;
-    --on-background: darkslategray;
-    --on-background-hover: darkseagreen;
+    --text-color: lightgray;
+    --background: rgb(8, 8, 8);
+
 }
 
 body {
     background-color: var(--background);
     color: var(--text-color);
-    margin: 0;
-    padding: 48px 0 0;
+    margin-top: 5em;
 }
 
 h1,

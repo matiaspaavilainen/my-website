@@ -1,34 +1,21 @@
 .photo-grid {
     display: grid;
-    gap: 8px;
-    grid-template-columns: auto auto auto auto;
-    padding: 12px;
-    margin-bottom: 12px
-}
-
-@media screen and (width <=1200px) {
-    .photo-grid {
-        grid-template-columns: auto auto auto;
-    }
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    padding: 0 24px;
+    margin-bottom: 3em;
 }
 
 @media screen and (width <=900px) {
     .photo-grid {
-        grid-template-columns: auto auto;
-    }
-}
-
-@media screen and (width <=600px) {
-    .photo-grid {
-        grid-template-columns: auto;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 
 .photo-card-small {
-    border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.438);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
-    max-width: 600px;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.438);
     overflow: hidden;
     position: relative;
     transition: all 0.2s;
@@ -36,6 +23,7 @@
 
 .photo-card-small:hover {
     border-color: var(--text-color);
+    box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.438);
     cursor: pointer;
 }
 
@@ -64,10 +52,20 @@
 }
 
 footer {
-    background-color: var(--on-background);
+    background-color: rgba(0, 0, 0, 0.836);
+    color: var(--text-color);
     bottom: 0;
-    padding: 2px 0;
+    left: 0;
+    padding-top: 4px;
     position: fixed;
     text-align: center;
-    width: 100%;
+    width: 100vw;
+}
+
+footer a {
+    color: var(--text-color);
+}
+
+footer a:hover {
+    color: blue;
 }

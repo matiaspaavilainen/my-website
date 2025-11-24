@@ -1,7 +1,9 @@
 .content {
     align-items: center;
+    justify-content: center;
     display: flex;
     flex-direction: column;
+    height: 90vh;
 }
 
 .content.text {
@@ -11,7 +13,8 @@
     font-size: x-large;
     margin: 8px;
     padding: 8px;
-    width: 50%;
+    width: 40vw;
+    max-height: fit-content;
 }
 
 .copyright {
@@ -19,6 +22,14 @@
     display: flex;
     gap: 8px;
     justify-content: center;
+}
+
+.content a {
+    color: var(--text-color);
+}
+
+.content a:hover {
+    color: blue;
 }
 
 #underline {
@@ -32,6 +43,6 @@
 
 @media screen and (orientation: portrait) {
     .content.text {
-        width: 80%;
+        width: 80vw;
     }
 }

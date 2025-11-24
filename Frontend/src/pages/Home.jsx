@@ -5,6 +5,8 @@ import githubWhite from '../assets/github-white.svg';
 import linkedinWhite from '../assets/linkedin-white.svg';
 import { useEffect, useState } from 'react';
 
+const photoPath = import.meta.env.MODE === 'development' ? '/' : '/public/';
+
 const getRandom = async () => {
     try {
         const response = await axios.get("/api/photos/random");
@@ -26,6 +28,16 @@ const Home = () => {
     if (photo) {
         return (
             <div className='container'>
+                <div className='image-container'>
+                    <Link to="/Photos" onClick={() => {
+                    }}>
+                        <img className='image'
+                            src={`${photoPath}thumbnails/${photo.thumb_n}`}
+                            alt={photo.title}
+                            loading="lazy"
+                        />
+                    </Link>
+                </div>
                 <div className="links">
                     <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon'>
                         <img src={githubWhite} alt='GitHub' />
@@ -33,16 +45,6 @@ const Home = () => {
                     <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon'>
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
-                </div>
-                <div className='image-container'>
-                    <Link to="/Photos" onClick={() => {
-                    }}>
-                        <img className='image'
-                            src={`public/thumbnails/${photo.thumb_n}`}
-                            alt={photo.title}
-                            loading="lazy"
-                        />
-                    </Link>
                 </div>
             </div>
         );

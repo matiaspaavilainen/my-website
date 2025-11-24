@@ -1,7 +1,9 @@
-//import ImageFilter from '../components/ImageFilter';
+// import ImageFilter from '../components/ImageFilter';
 import PhotoCard from '../components/PhotoCard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+
+const photoPath = import.meta.env.MODE === 'development' ? '/' : '/public/';
 
 const getAll = async () => {
     try {
@@ -56,13 +58,12 @@ const Photos = () => {
     } else {
         return (
             <div >
-                {/* TODO: Implement filter */}
                 {/* <ImageFilter /> */}
                 <div className='photo-grid'>
                     {photos.map((photo) => (
                         <div className="photo-card-small" key={photo.file_n}>
                             <img
-                                src={`public/thumbnails/${photo.thumb_n}`}
+                                src={`${photoPath}thumbnails/${photo.thumb_n}`}
                                 alt={photo.title}
                                 loading="lazy"
                                 onClick={() => {
@@ -76,7 +77,6 @@ const Photos = () => {
                 </div>
                 <div className={`card-overlay ${showPhotoLarge ? 'show' : ''}`} onClick={() => { setShowPhotoLarge(false); }} >
                     {showPhotoLarge && <PhotoCard
-                        {...photoLarge}
                         setShowPhotoLarge={setShowPhotoLarge}
                         setPhotoLarge={setPhotoLarge}
                         photoLarge={photoLarge}
