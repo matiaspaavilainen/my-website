@@ -1,19 +1,24 @@
+.wrapper {
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .content {
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    height: 90vh;
 }
 
 .content.text {
     border: 1px solid var(--text-color);
     border-radius: 8px;
-    font-size: large;
     font-size: x-large;
     margin: 8px;
     padding: 8px;
-    width: 40vw;
+    width: 50vw;
     max-height: fit-content;
 }
 
