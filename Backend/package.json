@@ -6,8 +6,7 @@
 	"scripts": {
 		"start": "node index.js",
 		"dev": "nodemon index.js",
-		"test": "echo \"Error: no test specified\" && exit 1",
-        "deploy": ""
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Matias Paavilainen",
 	"license": "MIT",
