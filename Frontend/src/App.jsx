@@ -20,13 +20,12 @@ const App = () => {
 
     return (
         <>
-            {/* TODO: make navbar close when clicking anywhere else */}
             <NavBar links={links} location={location} />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/Photos" element={<Photos />} />
                 <Route path="/About" element={<About />} />
-                {/* Enable only when running in dev mode locally, TODO: add auth to use all the time */}
+                {/* Enable only when running locally}
                 {/* <Route path='/Admin' element={<Admin />} /> */}
             </Routes>
         </>

@@ -34,6 +34,8 @@ const getRandomPhoto = async () => {
     }
 };
 
+// admin
+
 const deletePhoto = async (id) => {
     try {
         await pool.query(

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const photoPath = import.meta.env.MODE === 'development' ? '/' : '/public/';
 
-const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos }) => {
+const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos, setSelectedFilter }) => {
     useEffect(() => {
         // Disable scrolling when card is open
         document.body.style.overflow = 'hidden';
@@ -32,24 +32,26 @@ const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos }) => 
         setShowPhotoLarge(false);
     };
 
+    const handleTagClick = (c) => {
+        setSelectedFilter([{ value: c, label: c }]);
+        setShowPhotoLarge(false);
+    };
+
     return (
         <div className='photo-card-large' onClick={(e) => e.stopPropagation()}>
-            <div>
-                <img className='photo-card-large img'
-                    src={`${photoPath}display/${photoLarge.file_n}`}
-                    alt={photoLarge.title}
-                    loading="lazy" />
-            </div>
+            <img className='photo-card-large img'
+                src={`${photoPath}display/${photoLarge.file_n}`}
+                alt={photoLarge.title}
+                loading="lazy" />
             <div className="photo-card-info">
                 <h1>{photoLarge.title}</h1>
                 <hr id="title-underline" />
                 <p id="date">{new Date(Number(photoLarge.time_taken)).toLocaleDateString('FI')}</p>
 
-                {/* TODO: Make tags clickable and show all photos with that tag */}
                 <div className="photo-card-categories">
-                    <p>Tags: </p>
+                    <p>Tags:</p>
                     {photoLarge.category.map((c) => (
-                        <p key={c} id="category">{c}</p>
+                        <p key={c} id="category" onClick={() => handleTagClick(c)}>{c}</p>
                     ))}
                 </div>
             </div>
@@ -66,19 +68,24 @@ const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos }) => 
     );
 };
 
-PhotoCard.PropTypes = {
+PhotoCard.propTypes = {
     photos: PropTypes.arrayOf(PropTypes.shape({
         title: PropTypes.string.isRequired,
         file_n: PropTypes.string.isRequired,
-        thump_n: PropTypes.string.isRequired,
+        thumb_n: PropTypes.string.isRequired,
     })).isRequired,
-    photoLarge: PropTypes.objectOf(PropTypes.shape({
+    photoLarge: PropTypes.shape({
+        id: PropTypes.number.isRequired,
         time_taken: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
         file_n: PropTypes.string.isRequired,
-        thump_n: PropTypes.string.isRequired
-    })),
-    setShowPhotoLarge: PropTypes.func.isRequired
+        thumb_n: PropTypes.string.isRequired,
+        category: PropTypes.arrayOf(PropTypes.string.isRequired),
+        title: PropTypes.string.isRequired,
+    }),
+    setShowPhotoLarge: PropTypes.func.isRequired,
+    setPhotoLarge: PropTypes.func.isRequired,
+    setSelectedFilter: PropTypes.func.isRequired,
+    optionsFilter: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default PhotoCard;

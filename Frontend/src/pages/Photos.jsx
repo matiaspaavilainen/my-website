@@ -1,4 +1,4 @@
-// import ImageFilter from '../components/ImageFilter';
+import ImageFilter from '../components/ImageFilter';
 import PhotoCard from '../components/PhotoCard';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -19,17 +19,53 @@ const Photos = () => {
     const [photoLarge, setPhotoLarge] = useState({});
     const [showPhotoLarge, setShowPhotoLarge] = useState(false);
 
-    // Probably not ideal for larger datasets
+    // get the sorting from ImageFilter, false == DESC
+    const [selectedFilter, setSelectedFilter] = useState([]);
+    const optionsFilter = [
+        { value: 'Space', label: 'Space' },
+        { value: 'Crete', label: 'Crete' },
+        { value: 'Animals', label: 'Animals' },
+        { value: 'Nature', label: 'Nature' },
+        { value: 'Scenery', label: 'Scenery' },
+        { value: 'City', label: 'City' },
+        { value: 'Food', label: 'Food' },
+        { value: 'Other', label: 'Other' },
+    ];
+
+    const [sortObject, setSortObject] = useState({ sort: 'time_taken', direction: false });
+
+    // Probably not ideal for larger datasets, but works for this
     useEffect(() => {
+        const compareFn = (a, b) => {
+            if (sortObject.sort === 'time_taken') {
+                const aVal = Number(a[sortObject.sort]);
+                const bVal = Number(b[sortObject.sort]);
+                return sortObject.direction ? aVal - bVal : bVal - aVal;
+            } else if (sortObject.sort === 'title') {
+                const aVal = a[sortObject.sort].toLowerCase();
+                const bVal = b[sortObject.sort].toLowerCase();
+                return sortObject.direction ? bVal.localeCompare(aVal) : aVal.localeCompare(bVal);
+            }
+            return 0;
+        };
+
+        const filterFN = (element) => {
+            return selectedFilter.length == 0 ? true : selectedFilter.every(item => element.category.includes(item.value));
+        };
+
         getAll().then(photos => {
             if (Array.isArray(photos)) {
-                setPhotos(photos);
+                // apply tag filter
+                photos = photos.filter(filterFN);
+                // sort after filter
+                const sortedPhotos = [...photos].sort(compareFn);
+                setPhotos(sortedPhotos);
             } else {
                 console.error("Expected an array");
                 setPhotos([]);
             }
         });
-    }, []);
+    }, [sortObject, selectedFilter]);
 
     useEffect(() => {
         const handleKeyDown = (event) => {
@@ -52,13 +88,24 @@ const Photos = () => {
     if (photos.length == 0) {
         return (
             <div>
+                <ImageFilter
+                    onSortChange={setSortObject}
+                    selectedFilter={selectedFilter}
+                    setSelectedFilter={setSelectedFilter}
+                    optionsFilter={optionsFilter}
+                />
                 <h2 className='no-images'>No Images Found!</h2>
             </div>
         );
     } else {
         return (
-            <div >
-                {/* <ImageFilter /> */}
+            <div className='photos' >
+                <ImageFilter
+                    onSortChange={setSortObject}
+                    selectedFilter={selectedFilter}
+                    setSelectedFilter={setSelectedFilter}
+                    optionsFilter={optionsFilter}
+                />
                 <div className='photo-grid'>
                     {photos.map((photo) => (
                         <div className="photo-card-small" key={photo.file_n}>
@@ -79,6 +126,7 @@ const Photos = () => {
                     {showPhotoLarge && <PhotoCard
                         setShowPhotoLarge={setShowPhotoLarge}
                         setPhotoLarge={setPhotoLarge}
+                        setSelectedFilter={setSelectedFilter}
                         photoLarge={photoLarge}
                         photos={photos}
                     />

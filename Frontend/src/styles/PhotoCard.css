@@ -24,11 +24,12 @@
 
 .photo-card-large {
     align-items: center;
-    background-color: var(--on-background);
+    background-color: var(--button-bg);
     border-radius: 8px;
     display: flex;
     flex-direction: row;
     height: fit-content;
+    max-height: 90%;
     justify-content: center;
     padding: 8px;
     position: relative;
@@ -43,7 +44,9 @@
     flex: 0 0 80%;
     object-fit: contain;
     padding: 0;
-    width: 100%;
+    margin-left: 8px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .photo-card-info {
@@ -73,21 +76,31 @@
     bottom: 0;
     display: flex;
     flex-flow: row wrap;
-    gap: 8px;
-    justify-content: start;
+    gap: 2px;
+    justify-content: center;
     padding-bottom: 3px;
     position: absolute;
     width: 100%;
 }
 
 .photo-card-categories p {
-    padding: 8px;
+    padding: 6px 8px 2px 8px;
 }
 
 #category {
+    height: fit-content;
     background-color: var(--background);
+    border: solid 1px var(--background);
     border-radius: 4px;
     width: fit-content;
+    transition: all 0.2s;
+}
+
+#category:hover {
+    border: solid 1px var(--text-color);
+    background-color: var(--button-hover-glow);
+    box-shadow: 0 0 50px 4px var(--text-color);
+    cursor: pointer;
 }
 
 #previous,
@@ -120,6 +133,11 @@
         flex-direction: column;
     }
 
+    .photo-card-large.img {
+        margin: 0;
+        width: 100%;
+    }
+
     .photo-card-categories {
         margin-top: 8px;
         position: relative;
@@ -128,7 +146,6 @@
     .photo-card-info {
         align-items: center;
         display: flex;
-        flex: 0 0 20%;
         flex-direction: column;
         height: 100%;
         justify-content: center;
