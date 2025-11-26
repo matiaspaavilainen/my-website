@@ -1,15 +1,16 @@
 .wrapper {
+    align-items: center;
     display: flex;
     height: 60vh;
     justify-content: center;
-    align-items: center;
+    color: var(--text-color);
 }
 
 .content {
     align-items: center;
-    justify-content: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .content.text {
@@ -17,9 +18,9 @@
     border-radius: 8px;
     font-size: x-large;
     margin: 8px;
+    max-height: fit-content;
     padding: 8px;
     width: 50vw;
-    max-height: fit-content;
 }
 
 .copyright {

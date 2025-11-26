@@ -29,8 +29,8 @@
     display: flex;
     flex-direction: row;
     height: fit-content;
-    max-height: 90%;
     justify-content: center;
+    max-height: 90%;
     padding: 8px;
     position: relative;
     width: 80%;
@@ -42,11 +42,11 @@
     background-color: black;
     border-radius: 6px;
     flex: 0 0 80%;
-    object-fit: contain;
-    padding: 0;
     margin-left: 8px;
     max-height: 100%;
     max-width: 100%;
+    object-fit: contain;
+    padding: 0;
 }
 
 .photo-card-info {
@@ -84,21 +84,21 @@
 }
 
 .photo-card-categories p {
-    padding: 6px 8px 2px 8px;
+    padding: 6px 8px 2px;
 }
 
 #category {
-    height: fit-content;
     background-color: var(--background);
     border: solid 1px var(--background);
     border-radius: 4px;
-    width: fit-content;
+    height: fit-content;
     transition: all 0.2s;
+    width: fit-content;
 }
 
 #category:hover {
-    border: solid 1px var(--text-color);
     background-color: var(--button-hover-glow);
+    border: solid 1px var(--text-color);
     box-shadow: 0 0 50px 4px var(--text-color);
     cursor: pointer;
 }

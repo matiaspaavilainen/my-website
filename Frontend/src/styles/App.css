@@ -10,24 +10,30 @@
     font-family: monospace;
 
     --text-color: lightgray;
-    --background: rgb(8, 8, 8);
-    --button-bg: rgb(40, 40, 40);
-    --button-hover-glow: rgba(255, 255, 255, 0.26);
-    --current-selection: rgb(88, 17, 202);
+    --background: rgb(8 8 8);
+    --button-bg: rgb(40 40 40);
+    --button-hover-glow: rgb(70 70 70);
+    --current-selection: rgb(88 17 202);
 }
 
 body {
     background-color: var(--background);
-    color: var(--text-color);
     margin: 0;
-    margin-top: 5em;
 }
 
 h1,
 h2,
-h3,
-button,
 p {
     margin: 0;
     padding: 0;
+}
+
+.app-wrapper {
+    display: grid;
+    grid-template-areas:
+        "."
+        "."
+        "main-content";
+    grid-template-rows: 5em 3em 1fr;
+    height: 100dvh;
 }

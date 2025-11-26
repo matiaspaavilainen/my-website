@@ -27,35 +27,36 @@ const Home = () => {
 
     if (photo) {
         return (
-            <div className='container'>
-                <div className='image-container'>
+            <div className='home-container'>
+                <div className='image-container' style={{ 'gridArea': 'image-container' }}>
                     <Link to="/Photos" onClick={() => {
                     }}>
                         <img className='image'
+                            style={{ 'gridArea': 'image' }}
                             src={`${photoPath}thumbnails/${photo.thumb_n}`}
                             alt={photo.title}
                             loading="lazy"
                         />
                     </Link>
                 </div>
-                <div className="links">
-                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon'>
+                <div className="link-container" style={{ 'gridArea': 'link-container' }}>
+                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon' style={{ 'gridArea': 'link-1' }}>
                         <img src={githubWhite} alt='GitHub' />
                     </a>
-                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon'>
+                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon' style={{ 'gridArea': 'link-2' }}>
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
                 </div>
-            </div>
+            </div >
         );
     } else {
         return (
             <div className='container'>
-                <div className="links">
-                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon'>
+                <div className="link-container" style={{ 'gridArea': 'link-container' }}>
+                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon' style={{ 'gridArea': 'link-1' }}>
                         <img src={githubWhite} alt='GitHub' />
                     </a>
-                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon'>
+                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon' style={{ 'gridArea': 'link-2' }}>
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
                 </div>

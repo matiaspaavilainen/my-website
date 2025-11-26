@@ -19,16 +19,18 @@ const App = () => {
     const location = useLocation();
 
     return (
-        <>
+        <div className='app-wrapper'>
             <NavBar links={links} location={location} />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/Photos" element={<Photos />} />
-                <Route path="/About" element={<About />} />
-                {/* Enable only when running locally}
+            <main className='main-content' style={{ 'gridArea': 'main-content' }}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/Photos" element={<Photos />} />
+                    <Route path="/About" element={<About />} />
+                    {/* Enable only when running locally}
                 {/* <Route path='/Admin' element={<Admin />} /> */}
-            </Routes>
-        </>
+                </Routes>
+            </main>
+        </div>
     );
 };
 
