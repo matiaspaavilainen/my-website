@@ -40,10 +40,10 @@ const Home = () => {
                     </Link>
                 </div>
                 <div className="link-container" style={{ 'gridArea': 'link-container' }}>
-                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon' style={{ 'gridArea': 'link-1' }}>
+                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon git' style={{ 'gridArea': 'link-1' }}>
                         <img src={githubWhite} alt='GitHub' />
                     </a>
-                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon' style={{ 'gridArea': 'link-2' }}>
+                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon linked' style={{ 'gridArea': 'link-2' }}>
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
                 </div>
@@ -53,10 +53,10 @@ const Home = () => {
         return (
             <div className='container'>
                 <div className="link-container" style={{ 'gridArea': 'link-container' }}>
-                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon' style={{ 'gridArea': 'link-1' }}>
+                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon 1' style={{ 'gridArea': 'link-1' }}>
                         <img src={githubWhite} alt='GitHub' />
                     </a>
-                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon' style={{ 'gridArea': 'link-2' }}>
+                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon 2' style={{ 'gridArea': 'link-2' }}>
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
                 </div>

@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const NavBar = ({ links, location }) => {
+
     return (
-        <div className='topbar'>
+        <div className={`topbar ${location.pathname.trim().substring(1)}`}>
             {links.map((link) => (
                 <Link
                     className={`link${location.pathname === link.link ? " current" : ""}`}

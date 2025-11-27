@@ -45,30 +45,35 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
         control: (baseStyles) => ({
             ...baseStyles,
             boxShadow: "none",
+            borderWidth: '0',
         }),
+
         multiValue: (baseStyles) => ({
             ...baseStyles,
             borderRadius: '3px',
-            padding: '3px',
-            width: 'fit-content',
+            padding: '1px',
             backgroundColor: 'rgb(88, 17, 202)',
         }),
+
         multiValueLabel: (baseStyles) => ({
             ...baseStyles,
             color: 'lightgray',
+            fontSize: 'medium',
             fontWeight: '600',
-            padding: '3px 0 0 0'
         }),
+
         multiValueRemove: (baseStyles) => ({
             ...baseStyles,
             borderRadius: '3px',
             padding: '0 2px 0 4px'
         }),
+
         menu: (baseStyles) => ({
             ...baseStyles,
             borderRadius: '4px',
-            padding: '4px 6px'
+            padding: '4px 6px',
         }),
+
         option: (baseStyles, state) => ({
             ...baseStyles,
             borderRadius: '4px',
@@ -76,6 +81,7 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
             color: state.isFocused ? 'black' : '',
             backgroundColor: state.isFocused ? 'lightgray' : '',
         }),
+
         singleValue: (baseStyles) => ({
             ...baseStyles,
             color: 'lightgray',
@@ -83,6 +89,7 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
             fontSize: 'large',
             padding: '4px 0 0 2px'
         }),
+
         placeholder: (baseStyles) => ({
             ...baseStyles,
             color: 'lightgray',
@@ -94,7 +101,7 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
     return (
         <div className="image-sort-filter">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-            <div className='image-sort'>
+            <div className='image-sort' style={{ gridArea: 'image-sort' }} >
                 <p className='info-box'>Sort by:</p>
                 <Select
                     styles={style}
@@ -111,17 +118,16 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
                 />
             </div>
 
-            <div className='sort-direction'>
+            <div className='sort-direction' style={{ gridArea: 'sort-direction' }} >
                 <p className='info-box'>Order:</p>
-                <button className={"sort-direction"}
+                <button id='sort-button'
                     onClick={() => {
                         setSortDirection(!sortDirection);
-                    }}>
-                    {sortDirection ? <i className="fa fa-arrow-up"></i> : <i className="fa fa-arrow-down"></i>}
-                </button>
+                    }}
+                >{sortDirection ? <i className="fa fa-chevron-up"></i> : <i className="fa fa-chevron-down"></i>}</button>
             </div>
 
-            <div className='image-filter'>
+            <div className='image-filter' style={{ gridArea: 'image-filter' }}>
                 <p className='info-box'>Filter:</p>
                 <Select
                     styles={style}
@@ -131,6 +137,7 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
                     value={selectedFilter}
                     onChange={handleFilterChange}
                     isClearable={true}
+                    isSearchable={false}
                     autoFocus={false}
                     closeMenuOnSelect={true}
                     options={optionsFilter}

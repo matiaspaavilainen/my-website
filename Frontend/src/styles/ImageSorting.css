@@ -1,38 +1,74 @@
 .image-sort-filter {
     align-items: center;
-    background-color: rgb(0 0 0 / 80%);
-    border-radius: 8px;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 1em;
     height: 3em;
     left: 0;
     padding: 4px 24px 8px;
     position: fixed;
     right: 0;
     top: 5em;
-    z-index: 8;
+    z-index: 10;
+}
+
+/* override so navbar and filters can share the same bg to make blur nice */
+.topbar.Photos {
+    backdrop-filter: none;
+    background-color: transparent;
+}
+
+.topbar.Photos::after {
+    backdrop-filter: blur(1em);
+    background-color: rgb(0 0 0 / 80%);
+    content: '';
+    height: 14em;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    z-index: -3;
 }
 
 .image-sort,
 .sort-direction,
 .image-filter {
-    display: flex;
-    height: 100%;
-    flex-direction: row;
     align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
     justify-content: center;
+    position: relative;
+    transition: 0.3s;
 }
 
-.sort-direction button {
+.image-sort {
+    z-index: 10;
+}
+
+.image-sort:hover,
+.sort-direction:hover,
+.image-filter:hover {
+    filter: drop-shadow(0 0 0.4em white);
+}
+
+#sort-button {
     align-items: center;
     background-color: var(--button-bg);
     border-radius: 0 8px 8px 0;
+    border-style: none;
     color: var(--text-color);
     display: flex;
     height: 38px;
-    padding: 0 16px;
     margin: 0;
+    padding: 0 12px;
+    transition: 0.3s;
+}
+
+#sort-button:hover {
+    filter: none !important;
 }
 
 .image-filter-select,
@@ -43,44 +79,52 @@
 
 .info-box {
     background-color: var(--button-bg);
-    border: solid 1px var(--text-color);
     border-radius: 8px 0 0 8px;
     color: var(--text-color);
     flex: 0 0 auto;
     font-size: large;
-    height: 20px;
-    padding: 10px 12px 6px;
+    padding: 13px 6px 8px;
+    position: relative;
     transition: 0.3s;
 }
 
-@media screen and (orientation: portrait) {
+/* Line in between the select box and the text */
+.info-box::after {
+    background-color: white;
+    content: '';
+    height: 20px;
+    left: 100%;
+    position: absolute;
+    top: 50%;
+    translate: -50% -50%;
+    width: 1px;
+    z-index: 5;
+}
+
+@media (width <=42em) {
     .image-sort-filter {
-        align-items: stretch;
-        flex-direction: column;
-        padding: 8px;
+        display: grid;
+        grid-template-columns: auto max-content;
+        grid-template-areas:
+            "image-sort sort-direction"
+            "image-filter image-filter";
+        height: 8em;
+        padding: 0 8px;
+    }
+
+    .topbar.Photos::after {
+        height: 23em;
     }
 
     .info-box {
-        flex: 0 0 auto;
-        width: 80px;
+        width: 5em;
     }
 
-    .image-sort,
-    .image-filter,
-    .sort-direction {
-        display: flex;
-        justify-content: baseline;
-    }
-
+    .image-sort-select,
     .image-filter-select,
-    .image-sort-select {
-        width: 100%;
-    }
-
+    .sort-direction,
     .image-sort,
     .image-filter {
-        margin-right: 8px;
-        max-width: 100%;
-        width: calc(100% - 16px);
+        width: 100%;
     }
 }

@@ -6,9 +6,8 @@
     gap: 1.5em;
     grid-template-columns: auto auto auto 1fr;
     height: 5em;
-    justify-content: baseline;
     left: 0;
-    padding: 0 1.5em;
+    padding: 0 1em;
     position: fixed;
     right: 0;
     top: 0;
@@ -64,9 +63,11 @@
     background-image: conic-gradient(from var(--angle), transparent 70%, rgb(121, 48, 238));
 }
 
+.link.current:hover:after,
+.link.current:hover:before,
 .link.current::after,
 .link.current::before {
-    background-image: conic-gradient(from var(--angle), rgb(63, 129, 251), rgb(88 17 202) 80%, rgb(63 129 251 / 100%));
+    background-image: conic-gradient(from var(--angle), rgb(63, 129, 251), rgb(88 17 202) 20%, rgb(63 129 251 / 100%));
 }
 
 .link.current:before {

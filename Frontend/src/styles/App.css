@@ -1,7 +1,6 @@
 @import url("Home.css");
 @import url("NavBar.css");
 @import url("Photos.css");
-@import url("ImageSorting.css");
 @import url("About.css");
 @import url("Admin.css");
 @import url("PhotoCard.css");
@@ -30,6 +29,8 @@ p {
 
 .app-wrapper {
     display: grid;
+
+    /* empty spaces for the navbar and gap  */
     grid-template-areas:
         "."
         "."
