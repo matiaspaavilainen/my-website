@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const NavBar = ({ links, location }) => {
 
     return (
-        <div className={`topbar ${location.pathname.trim().substring(1)}`}>
+        <div className={`topbar ${location.pathname.trim().substring(1).toLowerCase()}`}>
             {links.map((link) => (
                 <Link
                     className={`link${location.pathname === link.link ? " current" : ""}`}

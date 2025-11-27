@@ -14,12 +14,12 @@
 }
 
 /* override so navbar and filters can share the same bg to make blur nice */
-.topbar.Photos {
+.topbar.photos {
     backdrop-filter: none;
     background-color: transparent;
 }
 
-.topbar.Photos::after {
+.topbar.photos::after {
     backdrop-filter: blur(1em);
     background-color: rgb(0 0 0 / 80%);
     content: '';
@@ -104,15 +104,15 @@
 @media (width <=42em) {
     .image-sort-filter {
         display: grid;
-        grid-template-columns: auto max-content;
         grid-template-areas:
             "image-sort sort-direction"
             "image-filter image-filter";
+        grid-template-columns: auto max-content;
         height: 8em;
         padding: 0 8px;
     }
 
-    .topbar.Photos::after {
+    .topbar.photos::after {
         height: 23em;
     }
 

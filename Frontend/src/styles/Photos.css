@@ -21,8 +21,8 @@
 
 .photo-card-small:hover {
     border-color: var(--text-color);
-    filter: drop-shadow(0 0 0.3em white);
     cursor: pointer;
+    filter: drop-shadow(0 0 0.3em white);
 }
 
 .photo-card-small img {

@@ -1,5 +1,4 @@
 .topbar {
-    place-items: center center;
     backdrop-filter: blur(1em);
     background-color: rgb(0 0 0 / 80%);
     display: grid;
@@ -8,6 +7,7 @@
     height: 5em;
     left: 0;
     padding: 0 1em;
+    place-items: center center;
     position: fixed;
     right: 0;
     top: 0;
@@ -28,19 +28,20 @@
 }
 
 @property --angle {
-    syntax: "<angle>";
     inherits: false;
     initial-value: 0deg;
+    syntax: "<angle>";
 }
 
 .link:hover {
     background-color: var(--button-hover-glow);
 }
 
-.link:hover:after,
-.link:hover:before,
+.link:hover::after,
+.link:hover::before,
 .link.current::after,
 .link.current::before {
+    animation: 3s spin linear infinite;
     border-radius: 20em;
     content: '';
     height: 100%;
@@ -51,28 +52,27 @@
     translate: -50% -50%;
     width: 100%;
     z-index: -1;
-    animation: 3s spin linear infinite;
 }
 
-.link:hover:before {
+.link:hover::before {
     filter: blur(2rem);
 }
 
-.link:hover:after,
-.link:hover:before {
-    background-image: conic-gradient(from var(--angle), transparent 70%, rgb(121, 48, 238));
+.link:hover::after,
+.link:hover::before {
+    background-image: conic-gradient(from var(--angle), transparent 70%, rgb(121 48 238));
 }
 
-.link.current:hover:after,
-.link.current:hover:before,
-.link.current::after,
 .link.current::before {
-    background-image: conic-gradient(from var(--angle), rgb(63, 129, 251), rgb(88 17 202) 20%, rgb(63 129 251 / 100%));
-}
-
-.link.current:before {
     filter: blur(1.5rem);
     opacity: 0.6;
+}
+
+.link.current::after,
+.link.current::before,
+.link.current:hover::after,
+.link.current:hover::before {
+    background-image: conic-gradient(from var(--angle), rgb(63 129 251), rgb(88 17 202) 20%, rgb(63 129 251 / 100%));
 }
 
 @keyframes spin {
