@@ -52,6 +52,7 @@
 .sort-direction:hover,
 .image-filter:hover {
     filter: drop-shadow(0 0 0.4em white);
+    cursor: default;
 }
 
 #sort-button {
