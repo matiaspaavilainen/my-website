@@ -1,0 +1,71 @@
+.category.Space {
+    background-color: rgb(3, 3, 62);
+}
+
+.category.Space:hover {
+    background-color: rgb(60, 60, 120);
+    color: var(--text-color)
+}
+
+.category.Crete {
+    background-color: rgb(30, 100, 180);
+}
+
+.category.Crete:hover {
+    background-color: rgb(70, 140, 220);
+    color: var(--background);
+}
+
+.category.Animals {
+    background-color: rgb(139, 90, 43);
+}
+
+.category.Animals:hover {
+    background-color: rgb(180, 130, 80);
+    color: var(--background);
+}
+
+.category.Nature {
+    background-color: rgb(34, 120, 50);
+}
+
+.category.Nature:hover {
+    background-color: rgb(70, 160, 90);
+    color: var(--background);
+}
+
+.category.Scenery {
+    background-color: rgb(100, 80, 140);
+}
+
+.category.Scenery:hover {
+    background-color: rgb(140, 120, 180);
+    color: var(--background);
+}
+
+.category.City {
+    background-color: rgb(80, 80, 90);
+}
+
+.category.City:hover {
+    background-color: rgb(120, 120, 130);
+    color: var(--background);
+}
+
+.category.Food {
+    background-color: rgb(180, 80, 50);
+}
+
+.category.Food:hover {
+    background-color: rgb(220, 120, 90);
+    color: var(--background);
+}
+
+.category.Other {
+    background-color: rgb(100, 100, 100);
+}
+
+.category.Other:hover {
+    background-color: rgb(140, 140, 140);
+    color: var(--background);
+}

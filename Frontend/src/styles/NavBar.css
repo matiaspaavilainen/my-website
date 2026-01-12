@@ -6,7 +6,7 @@
     grid-template-columns: auto auto auto 1fr;
     height: 5em;
     left: 0;
-    padding: 0 1em;
+    padding: 0 2em;
     place-items: center center;
     position: fixed;
     right: 0;
@@ -18,7 +18,7 @@
     background-color: var(--button-bg);
     border-radius: 20em;
     color: var(--text-color);
-    font-size: x-large;
+    font-size: xx-large;
     padding: 10px 0 5px;
     position: relative;
     text-align: center;
@@ -91,5 +91,9 @@
         grid-template-columns: 0.3fr 0.3fr 0.3fr;
         justify-content: center;
         padding: 0;
+    }
+
+    .link {
+        font-size: x-large;
     }
 }

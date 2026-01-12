@@ -4,6 +4,7 @@
 @import url("About.css");
 @import url("Admin.css");
 @import url("PhotoCard.css");
+@import url("PhotoCardTags.css");
 
 :root {
     font-family: monospace;

@@ -1,7 +1,7 @@
 import ImageFilter from '../components/ImageFilter';
 import PhotoCard from '../components/PhotoCard';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const photoPath = import.meta.env.MODE === 'development' ? '/' : '/public/';
 
@@ -67,10 +67,30 @@ const Photos = () => {
         });
     }, [sortObject, selectedFilter]);
 
+    const handleNext = useCallback(() => {
+        const index = (photos.indexOf(photoLarge) + 1) % photos.length;
+        setPhotoLarge(photos[index]);
+    }, [photoLarge, photos]);
+
+    const handlePrevious = useCallback(() => {
+        const index = (photos.indexOf(photoLarge) - 1 + photos.length) % photos.length;
+        setPhotoLarge(photos[index]);
+    }, [photoLarge, photos]);
+
+
     useEffect(() => {
         const handleKeyDown = (event) => {
+
             if (event.key === 'Escape') {
                 setShowPhotoLarge(false);
+            }
+
+            if (event.key === 'ArrowLeft') {
+                handlePrevious();
+            }
+
+            if (event.key === 'ArrowRight') {
+                handleNext();
             }
         };
 
@@ -83,7 +103,8 @@ const Photos = () => {
         return () => {
             globalThis.removeEventListener('keydown', handleKeyDown);
         };
-    }, [showPhotoLarge]);
+    }, [showPhotoLarge, handleNext, handlePrevious]);
+
 
     if (photos.length == 0) {
         return (
@@ -123,17 +144,22 @@ const Photos = () => {
                     ))}
                 </div>
                 <div className={`card-overlay ${showPhotoLarge ? 'show' : ''}`} onClick={() => { setShowPhotoLarge(false); }} >
-                    {showPhotoLarge && <PhotoCard
-                        setShowPhotoLarge={setShowPhotoLarge}
-                        setPhotoLarge={setPhotoLarge}
-                        setSelectedFilter={setSelectedFilter}
-                        photoLarge={photoLarge}
-                        photos={photos}
-                    />
+                    {showPhotoLarge &&
+                        <div className='photo-container' onClick={(e) => e.stopPropagation()}>
+                            <PhotoCard
+                                setShowPhotoLarge={setShowPhotoLarge}
+                                setPhotoLarge={setPhotoLarge}
+                                setSelectedFilter={setSelectedFilter}
+                                photoLarge={photoLarge}
+                                photos={photos} />
+
+                            <button id='next' style={{ 'gridArea': 'next' }} onClick={handleNext} ></button>
+                            <button id='previous' style={{ 'gridArea': 'previous' }} onClick={handlePrevious} ></button>
+                        </div>
                     }
                 </div>
                 <footer>
-                    <p>© Matias Paavilainen 2025 | This work is licensed under
+                    <p>© Matias Paavilainen 2026 | This work is licensed under
                         a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target='_blank'> Creative Commons Attribution-NonCommercial 4.0 International License</a>
                     </p>
                 </footer>

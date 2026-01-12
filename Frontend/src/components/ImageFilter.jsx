@@ -1,6 +1,7 @@
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsFilter }) => {
     const animatedComponents = makeAnimated();
@@ -148,6 +149,14 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
             </div>
         </div>
     );
+};
+
+
+ImageFilter.propTypes = {
+    onSortChange: PropTypes.func.isRequired,
+    selectedFilter: PropTypes.arrayOf(PropTypes.string),
+    setSelectedFilter: PropTypes.func.isRequired,
+    optionsFilter: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default ImageFilter;

@@ -1,8 +1,0 @@
-networks:
-    web-network:
-        name: web-network
-        driver: bridge
-
-include:
-    - docker-db-compose.yaml
-    - docker-website-compose.yaml

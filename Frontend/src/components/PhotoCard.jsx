@@ -1,12 +1,9 @@
-import chevron_right from '../assets/chevron-right-solid.svg';
-import chevron_left from '../assets/chevron-left-solid.svg';
-import close from '../assets/xmark-solid.svg';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const photoPath = import.meta.env.MODE === 'development' ? '/' : '/public/';
 
-const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos, setSelectedFilter }) => {
+const PhotoCard = ({ setShowPhotoLarge, photoLarge, setSelectedFilter }) => {
     useEffect(() => {
         // Disable scrolling when card is open
         document.body.style.overflow = 'hidden';
@@ -18,15 +15,6 @@ const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos, setSe
             document.documentElement.style.scrollbarGutter = 'auto';
         };
     }, []);
-    const handleNext = () => {
-        const index = (photos.indexOf(photoLarge) + 1) % photos.length;
-        setPhotoLarge(photos[index]);
-    };
-
-    const handlePrevious = () => {
-        const index = (photos.indexOf(photoLarge) - 1 + photos.length) % photos.length;
-        setPhotoLarge(photos[index]);
-    };
 
     const handleClose = () => {
         setShowPhotoLarge(false);
@@ -38,12 +26,13 @@ const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos, setSe
     };
 
     return (
-        <div className='photo-card-large' onClick={(e) => e.stopPropagation()}>
+        <div className='photo-card-large' style={{ 'gridArea': 'photo-card-large' }} >
             <img className='photo-card-large img'
+                style={{ 'gridArea': 'photo-card-image' }}
                 src={`${photoPath}display/${photoLarge.file_n}`}
                 alt={photoLarge.title}
                 loading="lazy" />
-            <div className="photo-card-info">
+            <div className="photo-card-info" style={{ 'gridArea': 'photo-card-info' }}>
                 <h1>{photoLarge.title}</h1>
                 <hr id="title-underline" />
                 <p id="date">{new Date(Number(photoLarge.time_taken)).toLocaleDateString('FI')}</p>
@@ -51,19 +40,11 @@ const PhotoCard = ({ setShowPhotoLarge, setPhotoLarge, photoLarge, photos, setSe
                 <div className="photo-card-categories">
                     <p>Tags:</p>
                     {photoLarge.category.map((c) => (
-                        <p key={c} id="category" onClick={() => handleTagClick(c)}>{c}</p>
+                        <button key={c} className={`category ${c}`} onClick={() => handleTagClick(c)}>{c}</button>
                     ))}
                 </div>
             </div>
-            <a target='_blank' id='previous' onClick={handlePrevious}>
-                <img src={chevron_left} alt='Previous' />
-            </a>
-            <a target='_blank' id='close' onClick={handleClose}>
-                <img src={close} alt='Close' />
-            </a>
-            <a target='_blank' id='next' onClick={handleNext}>
-                <img src={chevron_right} alt='Next' />
-            </a>
+            <button id='close' style={{ 'gridArea': 'photo-card-close' }} onClick={handleClose} ></button>
         </div>
     );
 };
