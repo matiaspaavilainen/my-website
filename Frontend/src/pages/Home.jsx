@@ -60,9 +60,6 @@ const Home = () => {
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
                 </div>
-                <div className='image-container'>
-                    <h2 className='no-images'>No Images Found!</h2>
-                </div>
             </div>
         );
     }

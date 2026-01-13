@@ -115,7 +115,9 @@ const Photos = () => {
                     setSelectedFilter={setSelectedFilter}
                     optionsFilter={optionsFilter}
                 />
-                <h2 className='no-images'>No Images Found!</h2>
+                <h2 className='no-images'>
+                    No Images Found!
+                </h2>
             </div>
         );
     } else {
