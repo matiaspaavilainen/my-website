@@ -52,15 +52,15 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
         multiValue: (baseStyles) => ({
             ...baseStyles,
             borderRadius: '3px',
-            padding: '1px',
+            fontSize: '14px',
+            fontWeight: '600',
             backgroundColor: 'rgb(88, 17, 202)',
         }),
 
         multiValueLabel: (baseStyles) => ({
             ...baseStyles,
+            paddingTop: '6px',
             color: 'lightgray',
-            fontSize: 'medium',
-            fontWeight: '600',
         }),
 
         multiValueRemove: (baseStyles) => ({
@@ -87,15 +87,15 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
             ...baseStyles,
             color: 'lightgray',
             borderRadius: '4px',
-            fontSize: 'large',
-            padding: '4px 0 0 2px'
+            fontSize: '16px',
+            padding: '5px 0 0 0'
         }),
 
         placeholder: (baseStyles) => ({
             ...baseStyles,
             color: 'lightgray',
-            fontSize: 'large',
-            padding: '4px 0 0 0'
+            fontSize: '16px',
+            padding: '5px 0 0 0'
         }),
     };
 
