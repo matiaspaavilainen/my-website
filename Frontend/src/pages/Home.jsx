@@ -28,6 +28,7 @@ const Home = () => {
     if (photo) {
         return (
             <div className='home-container'>
+                <meta name='decription' content='Personal home page / photo-gallery, made with React.js'></meta>
                 <div className='image-container' style={{ 'gridArea': 'image-container' }}>
                     <Link to="/Photos" onClick={() => {
                     }}>
