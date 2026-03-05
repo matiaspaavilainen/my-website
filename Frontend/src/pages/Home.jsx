@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import githubWhite from '../assets/github-white.svg';
 import linkedinWhite from '../assets/linkedin-white.svg';
+import solarSystem from '../assets/solarSystem.svg';
 import { useEffect, useState } from 'react';
 
 const photoPath = import.meta.env.MODE === 'development' ? '/' : '/public/';
@@ -47,6 +48,9 @@ const Home = () => {
                     <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon linked' style={{ 'gridArea': 'link-2' }}>
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
+                    <a href='https://realconstellations.com' target='_blank' className='icon realconst' style={{ 'gridArea': 'link-3' }}>
+                        <img src={solarSystem} alt='RealConstellations' />
+                    </a>
                 </div>
             </div >
         );
@@ -54,11 +58,14 @@ const Home = () => {
         return (
             <div className='container'>
                 <div className="link-container" style={{ 'gridArea': 'link-container' }}>
-                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon 1' style={{ 'gridArea': 'link-1' }}>
+                    <a href='https://github.com/matiaspaavilainen' target='_blank' className='icon git' style={{ 'gridArea': 'link-1' }}>
                         <img src={githubWhite} alt='GitHub' />
                     </a>
-                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon 2' style={{ 'gridArea': 'link-2' }}>
+                    <a href='https://www.linkedin.com/in/matiaspaavilainen/' target='_blank' className='icon linked' style={{ 'gridArea': 'link-2' }}>
                         <img src={linkedinWhite} alt='LinkedIn' />
+                    </a>
+                    <a href='https://realconstellations.com' target='_blank' className='icon realconst' style={{ 'gridArea': 'link-3' }}>
+                        <img src={solarSystem} alt='RealConstellations' />
                     </a>
                 </div>
             </div>
