@@ -44,9 +44,16 @@
     width: 100%;
 }
 
-.no-images {
+.photos {
+    height: 100%;
+}
+
+#no-images {
     color: var(--text-color);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 footer {

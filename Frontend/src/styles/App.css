@@ -7,13 +7,14 @@
 @import url("PhotoCardTags.css");
 
 :root {
-    font-family: monospace;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     --text-color: lightgray;
     --background: rgb(8 8 8);
     --button-bg: rgb(40 40 40);
     --button-hover-glow: rgb(70 70 70);
     --current-selection: rgb(88 17 202);
+    line-height: 1
 }
 
 body {

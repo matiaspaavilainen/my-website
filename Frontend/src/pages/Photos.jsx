@@ -108,16 +108,18 @@ const Photos = () => {
 
     if (photos.length == 0) {
         return (
-            <div>
+            <div className='photos'>
                 <ImageFilter
                     onSortChange={setSortObject}
                     selectedFilter={selectedFilter}
                     setSelectedFilter={setSelectedFilter}
                     optionsFilter={optionsFilter}
                 />
-                <h2 className='no-images'>
-                    No Images Found!
-                </h2>
+                <div id='no-images'>
+                    <h2>
+                        No Images Found!
+                    </h2>
+                </div>
             </div>
         );
     } else {

@@ -26,8 +26,8 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/Photos" element={<Photos />} />
                     <Route path="/About" element={<About />} />
-                    {/* Enable only when running locally}
-                {/* <Route path='/Admin' element={<Admin />} /> */}
+                    {/* Enable only in local */}
+                    {/* <Route path='/Admin' element={<Admin />} /> */}
                 </Routes>
             </main>
         </div>

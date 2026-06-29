@@ -59,7 +59,6 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
 
         multiValueLabel: (baseStyles) => ({
             ...baseStyles,
-            paddingTop: '6px',
             color: 'lightgray',
         }),
 
@@ -87,15 +86,13 @@ const ImageFilter = ({ onSortChange, selectedFilter, setSelectedFilter, optionsF
             ...baseStyles,
             color: 'lightgray',
             borderRadius: '4px',
-            fontSize: '16px',
-            padding: '5px 0 0 0'
+            fontSize: '16px'
         }),
 
         placeholder: (baseStyles) => ({
             ...baseStyles,
             color: 'lightgray',
             fontSize: '16px',
-            padding: '5px 0 0 0'
         }),
     };
 
