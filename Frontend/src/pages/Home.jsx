@@ -49,7 +49,7 @@ const Home = () => {
                         <img src={linkedinWhite} alt='LinkedIn' />
                     </a>
                     <a href='https://realconstellations.com' target='_blank' className='icon realconst' style={{ 'gridArea': 'link-3' }}>
-                        <img src={solarSystem} alt='RealConstellations' />
+                        <img src={solarSystem} alt='Personal project' />
                     </a>
                 </div>
             </div >
