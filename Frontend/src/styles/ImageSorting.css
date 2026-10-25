@@ -14,16 +14,16 @@
 }
 
 /* override so navbar and filters can share the same bg to make blur nice */
-.topbar.photos {
+.topbar.Photos {
     backdrop-filter: none;
     background-color: transparent;
 }
 
-.topbar.photos::after {
+.topbar.Photos::after {
     backdrop-filter: blur(1em);
     background-color: rgb(0 0 0 / 80%);
     content: '';
-    height: 14em;
+    height: 12em;
     left: 50%;
     position: absolute;
     top: 50%;

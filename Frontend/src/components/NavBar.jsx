@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const NavBar = ({ links, location }) => {
 
     return (
-        <div className={`topbar`}>
+        <div className={`topbar ${location.pathname.split("/")[1]}`}>
             {links.map((link) => (
                 <Link
                     className={`link${location.pathname === link.link ? " current" : ""}`}
