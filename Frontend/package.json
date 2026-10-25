@@ -7,7 +7,6 @@
 		"dev": "vite",
 		"build": "GENERATE_SOURCEMAP=true vite build",
 		"build-local": "GENERATE_SOURCEMAP=true vite build && cp -r ./dist/ ../Backend/",
-		"deploy": "npm run build && sudo systemctl restart matiaspaavilainen",
 		"lint": "eslint . --fix",
 		"lint:css": "stylelint '**/*.css' --fix",
 		"preview": "vite preview"

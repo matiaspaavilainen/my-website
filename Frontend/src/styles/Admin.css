@@ -11,6 +11,7 @@
     font-size: large;
     margin: 32px;
     padding: 8px;
+    color: white;
 }
 
 .image-form input {
@@ -25,6 +26,7 @@ button {
     border-radius: 4px;
     margin-top: 12px;
     padding: 8px;
+    color: black;
 }
 
 .image-display {
@@ -32,12 +34,13 @@ button {
     padding: 8px;
 }
 
-#select {
-    color: black;
-}
-
 #folder-empty {
     align-items: center;
     display: flex;
     justify-content: center;
+    color: white;
+}
+
+#select {
+    color: black;
 }

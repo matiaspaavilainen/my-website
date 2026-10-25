@@ -30,6 +30,7 @@ const Photos = () => {
         { value: 'City', label: 'City' },
         { value: 'Food', label: 'Food' },
         { value: 'Other', label: 'Other' },
+        { value: "Norway", label: "Norway" }
     ];
 
     const [sortObject, setSortObject] = useState({ sort: 'time_taken', direction: false });

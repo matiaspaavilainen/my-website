@@ -6,8 +6,13 @@
 @import url("PhotoCard.css");
 @import url("PhotoCardTags.css");
 
+@font-face {
+    font-family: "raleway";
+    src: url("../fonts/Raleway-VF.woff2");
+}
+
 :root {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "raleway";
 
     --text-color: lightgray;
     --background: rgb(8 8 8);

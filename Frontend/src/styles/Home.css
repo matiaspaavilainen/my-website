@@ -26,12 +26,19 @@
 }
 
 .image:hover {
-    filter: drop-shadow(0 0 1em white);
+    filter: drop-shadow(0 0 0.5em white);
 }
 
 .icon {
     transition: 0.3s;
-    width: clamp(100px, 12vw, 300px);
+    width: clamp(100px, 12vw, 300px)
+}
+
+.icon img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
 }
 
 .icon.git:hover {
@@ -43,16 +50,16 @@
 }
 
 .icon.realconst:hover {
-    filter: drop-shadow(0 0 5em rgb(64, 9, 112));
+    filter: drop-shadow(0 0 2em rgb(135, 29, 227));
 }
 
-.icon.realconst:hover::after {
-    background-color: rgb(64, 9, 112);
+.icon.realconst:hover::before {
+    background-color: rgb(73, 23, 117);
     content: '';
-    filter: blur(4em);
+    filter: blur(1em);
     height: 100%;
     left: 50%;
-    opacity: 0.3;
+    opacity: 0.1;
     position: absolute;
     top: 50%;
     translate: -50% -50%;
@@ -68,7 +75,7 @@
     filter: blur(1em);
     height: 80%;
     left: 50%;
-    opacity: 0.3;
+    opacity: 0.1;
     position: absolute;
     top: 50%;
     translate: -50% -50%;

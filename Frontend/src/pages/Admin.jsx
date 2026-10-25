@@ -50,6 +50,7 @@ const Admin = () => {
         { value: 'City', label: 'City' },
         { value: 'Food', label: 'Food' },
         { value: 'Other', label: 'Other' },
+        { value: 'Norway', label: 'Norway' }
     ];
 
     const handleSubmit = async (e) => {
