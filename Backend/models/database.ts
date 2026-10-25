@@ -1,0 +1,69 @@
+import mysql, { type PoolOptions } from "mysql2/promise";
+import "dotenv/config";
+
+const access: PoolOptions = {
+	host: process.env.DB_HOST,
+	port: Number(process.env.DB_PORT),
+	user: process.env.DB_USER,
+	password: process.env.DB_PASS,
+	database: process.env.DB_NAME,
+	waitForConnections: true,
+};
+
+const pool = mysql.createPool(access);
+
+const getAllPhotos = async () => {
+	try {
+		const [results] = await pool.query(
+			"SELECT * FROM photos ORDER BY time_taken DESC",
+		);
+		return results;
+	} catch (err) {
+		console.error("getAllPhotos error: ", err);
+		throw err;
+	}
+};
+
+const getRandomPhoto = async () => {
+	try {
+		const [results] = await pool.query(
+			"SELECT * FROM `photos` ORDER BY RAND() LIMIT 1",
+		);
+		return results;
+	} catch (err) {
+		console.error("getRandomPhoto error: ", err);
+		throw err;
+	}
+};
+
+// admin
+
+const deletePhoto = async (id: Number) => {
+	try {
+		await pool.query("DELETE FROM `photos` WHERE `id` = ?", [id]);
+	} catch (err) {
+		console.log(err);
+		throw err;
+	}
+};
+
+const insertPhoto = async (
+	time_taken: Number,
+	title: string,
+	category: string,
+	file_n: string,
+	thumb_n: string,
+) => {
+	try {
+		await pool.query(
+			"INSERT INTO `photos` (time_taken, title, category, file_n, thumb_n) VALUES (?, ?, ?, ?, ?)",
+			[time_taken, title, category, file_n, thumb_n],
+		);
+		console.log("Photo added with title", title);
+	} catch (err) {
+		console.log(err);
+		throw err;
+	}
+};
+
+export { getAllPhotos, getRandomPhoto, insertPhoto, deletePhoto };
