@@ -52,12 +52,14 @@ const insertPhoto = async (
 	title: string,
 	category: string,
 	file_n: string,
+	display_n: string,
 	thumb_n: string,
+	colors: string,
 ) => {
 	try {
 		await pool.query(
-			"INSERT INTO `photos` (time_taken, title, category, file_n, thumb_n) VALUES (?, ?, ?, ?, ?)",
-			[time_taken, title, category, file_n, thumb_n],
+			"INSERT INTO `photos` (time_taken, title, categories, file_n, display_n, thumb_n, colors) VALUES (?, ?, ?, ?, ?, ?, ?)",
+			[time_taken, title, category, file_n, display_n, thumb_n, colors],
 		);
 		console.log("Photo added with title", title);
 	} catch (err) {

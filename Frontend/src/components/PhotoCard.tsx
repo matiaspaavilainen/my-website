@@ -1,4 +1,4 @@
-import { useEffect, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import type { FilterOption, Photo } from "../types/types";
 
 const photoPath = import.meta.env.MODE === "development" ? "/" : "/public/";
@@ -24,13 +24,17 @@ const PhotoCard = ({
 		};
 	}, []);
 
+	const [showFullRes, setShowFullRes] = useState(false);
+
 	const handleClose = () => {
 		setShowPhotoLarge(false);
+		setShowFullRes(false);
 	};
 
 	const handleTagClick = (category: string) => {
 		setSelectedFilter([{ value: category, label: category }]);
 		setShowPhotoLarge(false);
+		setShowFullRes(false);
 	};
 
 	return (
@@ -40,7 +44,11 @@ const PhotoCard = ({
 			<img
 				className="photo-card-large img"
 				style={{ gridArea: "photo-card-image" }}
-				src={`${photoPath}display/${photoLarge.file_n}`}
+				src={
+					showFullRes
+						? `${photoPath}fullRes/${photoLarge.file_n}`
+						: `${photoPath}display/${photoLarge.display_n}`
+				}
 				alt={photoLarge.title}
 				loading="lazy"
 			/>
@@ -57,7 +65,7 @@ const PhotoCard = ({
 
 				<div className="photo-card-categories">
 					<p>Tags:</p>
-					{photoLarge.category.map((category: string) => (
+					{photoLarge.categories.map((category: string) => (
 						<button
 							key={category}
 							className={`category ${category}`}
@@ -67,10 +75,21 @@ const PhotoCard = ({
 					))}
 				</div>
 			</div>
-			<button
-				id="close"
-				style={{ gridArea: "photo-card-close" }}
-				onClick={handleClose}></button>
+			<div
+				id="photo-card-buttons"
+				style={{ gridArea: "photo-card-close" }}>
+				<button
+					id="close"
+					onClick={handleClose}></button>
+
+				<button
+					id="fullRes"
+					onClick={() => {
+						setShowFullRes(!showFullRes);
+					}}>
+					{showFullRes ? "SD" : "HD"}
+				</button>
+			</div>
 		</div>
 	);
 };

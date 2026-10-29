@@ -11,13 +11,13 @@ import { NavBar } from "./components/NavBar";
 import { Home } from "./pages/Home";
 import { Photos } from "./pages/Photos";
 import { About } from "./pages/About";
-import { Admin } from "./pages/Admin";
+// import { Admin } from "./pages/Admin";
 
 const links = [
 	{ link: "/", text: "Home" },
 	{ link: "/Photos", text: "Photos" },
 	{ link: "/About", text: "About" },
-	{ link: "/Admin", text: "Admin" },
+	// { link: "/Admin", text: "Admin" },
 ];
 
 const App = () => {
@@ -46,10 +46,10 @@ const App = () => {
 						element={<About />}
 					/>
 					{/* Enable only in local */}
-					<Route
+					{/* <Route
 						path="/Admin"
 						element={<Admin />}
-					/>
+					/> */}
 				</Routes>
 			</main>
 		</div>

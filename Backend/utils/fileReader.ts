@@ -4,11 +4,7 @@ import path from "node:path";
 
 const __dirname = path.resolve();
 
-/**
- * Reads files in the folder and extracts the date from the exif data.
- * @returns {obj []}
- */
-const fileReader = async () => {
+const fileReader = async (): Promise<{ filename: string; date: number }[]> => {
 	const filePath = path.join(__dirname, "public/toAdd/");
 
 	// Check if directory exists

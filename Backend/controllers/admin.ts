@@ -2,6 +2,7 @@ import express from "express";
 import { insertPhoto, deletePhoto } from "../models/database.ts";
 import fileReader from "../utils/fileReader.ts";
 import fileRenamer from "../utils/fileRenamer.ts";
+import { colorExtractor } from "../utils/colorExtractor.ts";
 
 const adminRouter = express.Router();
 
@@ -9,17 +10,22 @@ adminRouter.post("/", async (req, res) => {
 	const body = req.body;
 
 	try {
-		const [file_n, thumb_n] = await fileRenamer(
+		const colors = colorExtractor(body.file_n);
+
+		const [file_n, display_n, thumb_n] = await fileRenamer(
 			body.file_n,
 			body.title,
 			body.date,
 		);
+
 		const savedPhoto = await insertPhoto(
-			body.date,
+			Number(body.date),
 			body.title,
 			JSON.stringify(body.category),
 			file_n,
+			display_n,
 			thumb_n,
+			JSON.stringify(colors),
 		);
 		res.status(201).json(savedPhoto);
 	} catch (error) {

@@ -129,8 +129,11 @@
     background: url('../assets/chevron-right-solid.svg') no-repeat center;
 }
 
-#close {
+#photo-card-buttons {
     justify-self: end;
+}
+
+#close {
     background: url('../assets/xmark-solid.svg') no-repeat center;
 }
 

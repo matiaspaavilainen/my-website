@@ -57,7 +57,7 @@ const Photos = () => {
 			return selectedFilter.length == 0
 				? true
 				: selectedFilter.every((item) =>
-						element.category.includes(item.value),
+						element.categories.includes(item.value),
 					);
 		};
 
