@@ -15,6 +15,7 @@ const getAll = async (): Promise<Photo[]> => {
 const Photos = () => {
 	const [photos, setPhotos] = useState<Photo[]>([]);
 	const [photoLarge, setPhotoLarge] = useState<Photo>();
+	const [showFullRes, setShowFullRes] = useState(false);
 	const [showPhotoLarge, setShowPhotoLarge] = useState(false);
 
 	// get the sorting from ImageFilter, false == DESC
@@ -78,12 +79,14 @@ const Photos = () => {
 	const handleNext = useCallback(() => {
 		const index = (photos.indexOf(photoLarge!) + 1) % photos.length;
 		setPhotoLarge(photos[index]);
+		setShowFullRes(false);
 	}, [photoLarge, photos]);
 
 	const handlePrevious = useCallback(() => {
 		const index =
 			(photos.indexOf(photoLarge!) - 1 + photos.length) % photos.length;
 		setPhotoLarge(photos[index]);
+		setShowFullRes(false);
 	}, [photoLarge, photos]);
 
 	useEffect(() => {
@@ -164,8 +167,10 @@ const Photos = () => {
 							onClick={(e) => e.stopPropagation()}>
 							<PhotoCard
 								setShowPhotoLarge={setShowPhotoLarge}
+								setShowFullRes={setShowFullRes}
 								setSelectedFilter={setSelectedFilter}
 								photoLarge={photoLarge!}
+								showFullRes={showFullRes}
 							/>
 
 							<button

@@ -70,13 +70,17 @@
 #title-underline {
     background: var(--text-color);
     border: 0;
-    height: 2px;
+    height: 1px;
     margin-bottom: 12px;
     width: 90%;
 }
 
 #date {
     font-size: x-large;
+}
+
+#title {
+    font-size: 3em;
 }
 
 .photo-card-categories {

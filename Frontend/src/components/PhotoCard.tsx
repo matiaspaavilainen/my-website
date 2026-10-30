@@ -1,4 +1,4 @@
-import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, type Dispatch, type SetStateAction } from "react";
 import type { FilterOption, Photo } from "../types/types";
 
 const photoPath = import.meta.env.MODE === "development" ? "/" : "/public/";
@@ -6,11 +6,15 @@ const photoPath = import.meta.env.MODE === "development" ? "/" : "/public/";
 const PhotoCard = ({
 	setShowPhotoLarge,
 	setSelectedFilter,
+	setShowFullRes,
 	photoLarge,
+	showFullRes,
 }: {
 	setShowPhotoLarge: Dispatch<SetStateAction<boolean>>;
+	setShowFullRes: Dispatch<SetStateAction<boolean>>;
 	setSelectedFilter: Dispatch<SetStateAction<FilterOption[]>>;
 	photoLarge: Photo;
+	showFullRes: boolean;
 }) => {
 	useEffect(() => {
 		// Disable scrolling when card is open
@@ -23,8 +27,6 @@ const PhotoCard = ({
 			document.documentElement.style.scrollbarGutter = "auto";
 		};
 	}, []);
-
-	const [showFullRes, setShowFullRes] = useState(false);
 
 	const handleClose = () => {
 		setShowPhotoLarge(false);
@@ -55,7 +57,7 @@ const PhotoCard = ({
 			<div
 				className="photo-card-info"
 				style={{ gridArea: "photo-card-info" }}>
-				<h1>{photoLarge.title}</h1>
+				<p id="title">{photoLarge.title}</p>
 				<hr id="title-underline" />
 				<p id="date">
 					{new Date(Number(photoLarge.time_taken)).toLocaleDateString(
